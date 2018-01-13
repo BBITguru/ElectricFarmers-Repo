@@ -20,6 +20,7 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo"></a>
             <ul class="right hide-on-med-and-down">
+<<<<<<< HEAD
                 <li>
                     <a href="#"></a>
                 </li>
@@ -29,6 +30,15 @@
                 <li><a href="#">Navbar Link</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+=======
+            </ul>
+
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons"></i></a>
+>>>>>>> master
         </div>
     </nav>
 
@@ -57,7 +67,11 @@
             <div class="row">
                 <div class="col s12 m3">
                     <div class="icon-block">
+<<<<<<< HEAD
                         <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+=======
+                        <h2 class="center brown-text"><i class="material-icons">search</i></h2>
+>>>>>>> master
                         <h5 class="center">Food Search</h5>
 
                         <p class="light">Click here to search for Recipes</p>
@@ -66,7 +80,11 @@
 
                 <div class="col s12 m3">
                     <div class="icon-block">
+<<<<<<< HEAD
                         <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+=======
+                        <h2 class="center brown-text"><i class="material-icons">list</i></h2>
+>>>>>>> master
                         <h5 class="center">Grocery List</h5>
 
                         <p class="light">Click here for Grocery List?</p>
@@ -75,7 +93,11 @@
 
                 <div class="col s12 m3">
                     <div class="icon-block">
+<<<<<<< HEAD
                         <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+=======
+                        <h2 class="center brown-text"><i class="material-icons">view_module</i></h2>
+>>>>>>> master
                         <h5 class="center">Meal Categories</h5>
 
                         <p class="light">Click here to search Meal categories</p>
@@ -85,7 +107,11 @@
                 <div class="col s12 m3">
                     <div class="icon-block">
                         <h2 class="center brown-text">
+<<<<<<< HEAD
                             <i class="material-icons">settings</i>
+=======
+                            <i class="material-icons">room</i>
+>>>>>>> master
                         </h2>
                         <h5 class="center">Maps</h5>
 
@@ -144,6 +170,30 @@
                 <script src="js/materialize.js"></script>
                 <script src="js/init.js"></script>
 
+<<<<<<< HEAD
+=======
+            <script>
+                
+                var queryURL = "https://api.edamam.com/search?";
+
+                queryURL += $.param({
+                    q: 'steak',
+                    // this is our search query
+                    app_id: "d7a027dd",
+                    app_key: "80593788b6da05ad23ac32eea33a85ce",
+                    diet: "high-protein" 
+                });
+
+                console.log(queryURL)
+                
+                $.ajax({
+                    url: queryURL,
+                    method: 'GET'
+                }).done(function(response){
+                    console.log(response);
+                })
+            </script>
+>>>>>>> master
 </body>
 
 </html>

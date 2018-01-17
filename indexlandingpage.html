@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Electric Food Farmers</title>
+    <title>Electric Food Farmers Landing Page</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -47,6 +47,7 @@
         </div>
         <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
     </div>
+
 
 
     <!--START CLICK THRU ICONS AND DESCRIPTIONS-->
@@ -129,40 +130,40 @@
 
 
                             <div class="footer-copyright">
-                                <div class="container">
-                                    MADE BY ELECTRIC FARMERS
+                                <div class="container-right">
+                                    Copyright &copy; 2015 Electric Farmers | All rights
                                     <a class="brown-text text-lighten-3" href=></a>
                                 </div>
                             </div>
                 </footer>
 
 
-                <!--  Scripts-->
+
+                <!--SCRIPTS-->
                 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
                 <script src="assets/js/materialize.js"></script>
                 <script src="assets/js/init.js"></script>
 
-            <script>
-                
-                var queryURL = "https://api.edamam.com/search?";
+                <script>
+                    var queryURL = "https://api.edamam.com/search?";
 
-                queryURL += $.param({
-                    // this is our search query
-                    q: 'steak',
-                    app_id: "d7a027dd",
-                    app_key: "80593788b6da05ad23ac32eea33a85ce",
-                    diet: "high-protein" 
-                });
+                    queryURL += $.param({
+                        // this is our search query
+                        q: 'steak',
+                        app_id: "d7a027dd",
+                        app_key: "80593788b6da05ad23ac32eea33a85ce",
+                        diet: "high-protein"
+                    });
 
-                console.log(queryURL)
-                
-                $.ajax({
-                    url: queryURL,
-                    method: 'GET'
-                }).done(function(response){
-                    console.log(response);
-                })
-            </script>
+                    console.log(queryURL)
+
+                    $.ajax({
+                        url: queryURL,
+                        method: 'GET'
+                    }).done(function(response) {
+                        console.log(response);
+                    })
+                </script>
 </body>
 
 </html>

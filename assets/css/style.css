@@ -71,3 +71,7 @@ footer.page-footer {
 }
 
 #index-banner.parallax-container {}
+
+#footer-copyright {
+    text-align: center;
+}

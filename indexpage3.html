@@ -82,7 +82,7 @@
                 <div class=""></div>
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">Recipe Card 1</span>
+                        <span class="card-title">Meal 1</span>
                         <p>
                         </p>
                     </div>
@@ -95,7 +95,7 @@
                 <div class=""></div>
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">Recipe Card 2</span>
+                        <span class="card-title">Meal 2</span>
                         <p>
                     </div>
                     <div class="card-action">
@@ -109,7 +109,7 @@
                 <div class=""></div>
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">Recipe Card 3</span>
+                        <span class="card-title">Meal 3</span>
                         <p>
                     </div>
                     <div class="card-action">
@@ -121,7 +121,7 @@
                 <div class=""></div>
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">Recipe Card 4</span>
+                        <span class="card-title">Meal 4</span>
                         <p>
                     </div>
                     <div class="card-action">
@@ -138,7 +138,7 @@
                     <div class=""></div>
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                            <span class="card-title">Recipe Card 5</span>
+                            <span class="card-title">Meal 5</span>
                             <p>
                             </p>
                         </div>
@@ -152,7 +152,7 @@
                     <div class=""></div>
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                            <span class="card-title">Recipe Card 6</span>
+                            <span class="card-title">Meal 6</span>
                             <p>
                         </div>
                         <div class="card-action">
@@ -166,7 +166,7 @@
                     <div class=""></div>
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                            <span class="card-title">Recipe Card 7</span>
+                            <span class="card-title">Meal 7</span>
                             <p>
                         </div>
                         <div class="card-action">
@@ -178,7 +178,7 @@
                     <div class=""></div>
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                            <span class="card-title">Recipe Card 8</span>
+                            <span class="card-title">Meal 8</span>
                         </div>
                         <div class="card-action">
                         </div>
@@ -189,7 +189,18 @@
     </div>
 </div>
 <!--END DISPLAY CARDS-->
-
+<script>
+    function recipeCard(someContent) {
+        var parent = $('<div>').addClass('col s12 m3');
+        var child1 = $('<div>').text();
+        var child2 = $('<div>').addClass('card blue-grey darken-1');
+        var grandchild1 = $('<div>').addClass('card-content white-text').html('<span class = "card-title" > Meal 4 </span><p>');
+        var grandchild2 = $('<div>').addClass('card-action');
+        child2.append(grandchild1, grandchild2);
+        parent.append(child1, child2);
+        $('#someId').append(parent);
+    }
+</script>
 
 <!--FOOTER SECTION-->
 <footer class="page-footer teal">

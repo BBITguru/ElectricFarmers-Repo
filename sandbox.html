@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WORKING TEST DOCUMENT</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        padding: 5px;
+    }
+</style>
+
+
+<body>
+
+    <h1>TOOL BOX </h1>
+    <p>CREATING ONCLICK FUNCTIONS FOR LANDING PAGE</p>
+
+
+
+
+
+    <!--#1 click me button to return text-->
+    <button onclick="myFunction()">Click me</button>
+    <p id="demo"></p>
+    <p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p>
+
+
+
+    <!-- #2 Form to return information from dropdown-->
+    <h1>The XMLHttpRequest Object</h1>
+    <form action="">
+        <select name="customers" onchange="showCustomer(this.value)">
+<option value="">Select a customer:</option>
+<option value="ALFKI">Alfreds Futterkiste</option>
+<option value="NORTS ">North/South</option>
+<option value="WOLZA">Wolski Zajazd</option>
+</select>
+    </form>
+    <br>
+    <div id="txtHint">Customer info will be listed here...</div>
+
+
+
+
+    <script>
+        //Function for #1
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello World";
+        }
+
+
+        //Function #2
+        $(function() {
+            $('#searchlink').on('click', function(e) {
+                $(this).toggleClass('open');
+            });
+        });
+
+        function showCustomer(str) {
+            var xhttp;
+            if (str == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtHint").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "getcustomer.asp?q=" + str, true);
+            xhttp.send();
+        }
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

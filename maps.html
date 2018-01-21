@@ -1,9 +1,6 @@
 <html lang ="en">
 
 <head>
-    <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Places Searchbox</title> -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Electric Food Farmers Page 4 Map </title>
@@ -11,136 +8,42 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  
-  <!--STYLE-->
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-        * element that contains the map. */
-      #map {
-        max-width: 100%;
-        height: 60%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
-
-      #infowindow-content .title {
-        font-weight: bold;
-      }
-
-      #infowindow-content {
-        display: none;
-      }
-
-      #map #infowindow-content {
-        display: inline;
-      }
-
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
-
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
-
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
-
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-
-      #searchInput {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-      }
-      #searchInput:focus {
-        border-color: #4d90fe;
-      }
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
-      div.row {
-        margin-top: 2%;
-        margin-left: 15%;
-      }
-      div.section {
-          padding: 0;
-      }
-      div.footer-copyright {
-          margin-left: 75%;
-      }
-    </style>
-  <!--END STYLE-->
-  </head>
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />  
+</head>
 
 <body>
   <!--NAV BAR START-->
-  <nav class="white" role="navigation">
-      <ul class="right hide-on-med-and-down">
-      </ul>
-      <div id="index-banner" class="parallax-container">
-          <nav class="white" role="navigation">
-              <div class="nav-wrapper container">
-                  <a href="#" class="brand-logo">Electric Farmers</a>
-                  <ul class="right">
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">Grocery List</a></li>
-                      <li><a href="#">Meal Category</a></li>
-                      <li><a href="#">Store Locator</a></li>
-                  </ul>
-                  </li>
-              </div>
-          </nav>
-      </div>
-  </nav>
+    <nav class="white" role="navigation">
+        <ul class="right hide-on-med-and-down">
+        </ul>
+        <div id="index-banner" class="parallax-container">
+            <nav class="white" role="navigation">
+                <div class="nav-wrapper container">
+                    <a href="#" class="brand-logo">Electric Farmers</a>
+                    <ul class="right">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Grocery List</a></li>
+                        <li><a href="#">Meal Category</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                    </ul>
+                    </li>
+                </div>
+            </nav>
+        </div>
+    </nav>
   <!---NAV BAR END-->
 
-    <!--FORM FOR SEARCH BAR SECTION-->
-    <body style="margin:0px; padding:0px;" onload="initAutocomplete()">
+  <!--FORM FOR SEARCH BAR SECTION-->
+    <body onload="initAutocomplete()">
         <div>
             <div class="row">
                 <div class="col s12 m10">
                     <div class="searchBox">
                         <div class="card">
-                            <label for="rsearchInput">Search location:</label>
+                        <!-- Grocery Stores in your area -->
+                            <label for="rsearchInput">Store Search</label>
                             <input type="text" id="searchInput" size="15" />
-                            <input id="searchInput" class="controls" type="text" placeholder="Search Box">
+                            <input id="searchInput" class="controls" type="text" placeholder="Whole Foods, Kroger, Food Lion">
                             <label for="radiusSelect">Radius:</label>
                             <select id="radiusSelect" label="Radius">
                         </div>
@@ -152,38 +55,65 @@
         <div>
             <select id="locationSelect" style="width: 10%; visibility: hidden"></select>
         </div>
-        <!--CLOSE SEARCH BAR SECTION-->
+  <!--CLOSE SEARCH BAR SECTION-->
 
-        <!-- MAPS PLACES SEARCH START -->
+  <!-- MAPS PLACES SEARCH START -->
+  <div id="map"></div>
 
-        <div id="map"></div>
-
-        <!--FOOTER SECTION-->
-        <footer class="page-footer teal">
-            <div class="footer-copyright">
-                Copyright &copy; 2018 Electric Farmers | All rights
-                <a class="brown-text text-lighten-3" href=></a>
-            </div>
-        </footer>
-        </a>
-        </div>
-        </div>
-        </div>
-        <!--END FOOTER SECTION-->
+  <!--FOOTER SECTION-->
+      <footer class="page-footer teal">
+          <div class="footer-copyright">
+              Copyright &copy; 2018 Electric Farmers | All rights
+              <a class="brown-text text-lighten-3" href=></a>
+          </div>
+      </footer>
+      <!-- </a>
+      </div>
+      </div>
+      </div> -->
+  <!--END FOOTER SECTION-->
 
     <script>
+      var center, pos = {lat: -34.397, lng: 150.644};
+      var pos;
+      
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a pick list containing a mix of places and predicted search terms.
       function initAutocomplete() {
+        
         // Create the search box and link it to the UI element.
         var input = document.getElementById('searchInput');
+        console.log(input);
 
-        
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 32.076176, lng: -81.088371},
+          // Savannah, Georgia - Default
+            // center: {lat: 32.076176, lng: -81.088371},
+          // Syndey, Australia to test for GeoLocation
+            // center: {lat: -34.397, lng: 150.644},
           zoom: 11,
           mapTypeId: 'roadmap'
         });
+        var map, infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = center = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
 
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -241,14 +171,24 @@
           });
           map.fitBounds(bounds);
         });
-
       }
 
+      // Browser doesn't support Geolocation Function
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
       
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqbmFkjcZqKGhM9mzvzuycp_CgAr2vGbs&libraries=places&callback=initAutocomplete"
           async defer>
           </script>
+    <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqbmFkjcZqKGhM9mzvzuycp_CgAr2vGbs&callback=initMap">
+    </script> -->
   </body>
 </html>

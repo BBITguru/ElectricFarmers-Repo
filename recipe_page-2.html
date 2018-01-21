@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Electric Food Farmers Page 1 Search</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <style>
+        /* styling for this page*/
+        #index-banner {
+            color: black;
+        }
+
+    </style>
+</body>
+<!--NAV BAR START-->
+<nav class="white" role="navigation">
+    <ul class="right hide-on-med-and-down">
+    </ul>
+    <div id="index-banner" class="parallax-container">
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo">Electric Farmers</a>
+                <ul class="right">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Grocery List</a></li>
+                    <li><a href="#">Meal Category</a></li>
+                    <li><a href="#">Store Locator</a></li>
+                </ul>
+                </li>
+            </div>
+        </nav>
+    </div>
+</nav>
+<!---NAV BAR END-->
+
+<!--FORM FOR SEARCH BAR SECTION-->
+<div class="row">
+    <div class="col s12 m10">
+        <div class="searchBox">
+            <div class="card">
+                <div id="index-banner" div class="parallax-container">
+                    <form action="/action_page.php">
+                        <input type="text" id="search" name="searchHere" placeholder="Search">
+                        <button id="submit" type="submit" value="Submit">Search<button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- test form user input-->
+
+<!--CLOSE SEARCH BAR SECTION-->
+
+
+
+<!-- START EMPTY CARDS TO HOLD API SEARCH RESULTS
+<!--WILL HAVE TO USE JQUERY TO APPEND THE RESULTS TO PAGE THIS WILL ACT LIKE A VISUAL PLACEHOLDER UNTIL THAT STEP-->
+<!--COULD ADD A COLLAPSIBLE STRUCTURE TO EACH CARD-JS-->
+<!--FIRST ROW OF EMPTY CARDS-->
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m3">
+                <div class=""></div>
+                <div class="card blue-grey darken-1" id="food-div-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Recipe Card 1</span>
+                        <p>
+                        </p>
+                    </div>
+                    <div class="card-action">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+                <div class=""></div>
+                <div class="card blue-grey darken-1" id="food-div-2">
+                    <div class="card-content white-text">
+                        <span class="card-title">Recipe Card 2</span>
+                        <p>
+                    </div>
+                    <div class="card-action">
+                    </div>
+                </div>
+                <p class="light"></p>
+            </div>
+
+
+            <div class="col s12 m3">
+                <div class=""></div>
+                <div class="card blue-grey darken-1" id="food-div-3">
+                    <div class="card-content white-text">
+                        <span class="card-title">Recipe Card 3</span>
+                        <p>
+                    </div>
+                    <div class="card-action">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+                <div class=""></div>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Recipe Card 4</span>
+                        <p>
+                    </div>
+                    <div class="card-action">
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!--SECOND ROW EMPTY CARDS-->
+            <!--<div class="row">
+                <div class="col s12 m3">
+                    <div class=""></div>
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Recipe Card 5</span>
+                            <p>
+                            </p>
+                        </div>
+                        <div class="card-action">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m3">
+                    <div class=""></div>
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Recipe Card 6</span>
+                            <p>
+                        </div>
+                        <div class="card-action">
+                        </div>
+                    </div>
+                    <p class="light"></p>
+                </div>
+
+
+                <div class="col s12 m3">
+                    <div class=""></div>
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Recipe Card 7</span>
+                            <p>
+                        </div>
+                        <div class="card-action">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m3">
+                    <div class=""></div>
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Recipe Card 8</span>
+                        </div>
+                        <div class="card-action">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--END DISPLAY CARDS-->
+
+<div class="col s12 m3" id="recipe-div"></div>
+
+
+<!--FOOTER SECTION-->
+    <footer class="page-footer teal">
+        <div class="footer-copyright">
+            Copyright &copy; 2015 Electric Farmers | All rights
+            <a class="brown-text text-lighten-3" href=></a>
+        </div>
+    </footer>
+<!--END FOOTER SECTION-->
+
+
+
+<!--  SCRIPTS-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="assets/js/materialize.js"></script>
+<script src="assets/js/init.js"></script>
+
+<script>
+  
+    function runSearch(e) {
+        e.preventDefault()
+        var food = $('#search').val() ;
+        var appId = "&app_id=c352aed6";
+        var appKey = "&app_key=ac5ca67ecd16815f2532e5b62a701164";
+        var limit = "&from=0&to=6"
+        var limit2 = 6
+        var queryURL = "https://api.edamam.com/search?q=" + food + appId + appKey + limit;
+
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).done(function (response) {
+            console.log(response);
+
+            for (var j = 0; j < limit2; j++) {
+
+               var recipeTitle = $("<h3>").text(response.hits[j].recipe.label);
+               var recipeURL = $("<a>").attr("href", response.hits[j].recipe.url).append(recipeTitle)
+               var recipeImage = $("<img>").attr("src", response.hits[j].recipe.image)
+
+               
+                $("#recipe-div").append(recipeTitle, recipeImage);
+
+            }
+
+        })
+    }
+
+
+
+
+
+
+
+   // function getRecipe(food) { 
+    // }
+    // function setup() {
+    //     var button = select('#submit');
+    //     button.mousePressed(foodLookUp);
+    //    input = select('#food');
+    // }
+    // function foodLookUp() {
+    //     var queryURL = "https://api.edamam.com/search?q=" + input.value() + appId + appKey + limit;
+    //     loadJSON(queryURL);
+    // }
+
+    $('#submit').on('click', runSearch)
+
+    
+
+
+
+
+</script>
+</body>
+
+</html>

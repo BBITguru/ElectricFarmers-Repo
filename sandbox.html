@@ -2,90 +2,78 @@
 <html>
 
 <head>
-    <title>WORKING TEST DOCUMENT</title>
+    <title>TEST CODE </title>
 </head>
 <style>
-    table,
-    th,
-    td {
-        border: 1px solid black;
-        border-collapse: collapse;
+    #button {
+        width: 6em;
+        border: 2px solid green;
+        background: #ffe;
+        border-radius: 5px;
     }
     
-    th,
-    td {
-        padding: 5px;
+    a {
+        display: block;
+        width: 100%;
+        line-height: 2em;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    
+    a:hover {
+        color: red;
+        background: #eff;
     }
 </style>
 
 
 <body>
 
-    <h1>TOOL BOX </h1>
-    <p>CREATING ONCLICK FUNCTIONS FOR LANDING PAGE</p>
+
+    <div id="button"><a href="login.html">Log In</a></div>
 
 
 
 
 
-    <!--#1 click me button to return text-->
-    <button onclick="myFunction()">Click me</button>
-    <p id="demo"></p>
-    <p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p>
-
-
-
-    <!-- #2 Form to return information from dropdown-->
-    <h1>The XMLHttpRequest Object</h1>
-    <form action="">
-        <select name="customers" onchange="showCustomer(this.value)">
-<option value="">Select a customer:</option>
-<option value="ALFKI">Alfreds Futterkiste</option>
-<option value="NORTS ">North/South</option>
-<option value="WOLZA">Wolski Zajazd</option>
-</select>
-    </form>
-    <br>
-    <div id="txtHint">Customer info will be listed here...</div>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons" id="foodIcon">search</i></h2>
+                        <div id="button"><a href="indexpage1.html">Log In</a>
+                            <h5 class="center">Food Search</h5>
+                        </div>
 
 
 
 
-    <script>
-        //Function for #1
-        function myFunction() {
-            document.getElementById("demo").innerHTML = "Hello World";
-        }
-
-
-        //Function #2
-        $(function() {
-            $('#searchlink').on('click', function(e) {
-                $(this).toggleClass('open');
-            });
-        });
-
-        function showCustomer(str) {
-            var xhttp;
-            if (str == "") {
-                document.getElementById("txtHint").innerHTML = "";
-                return;
-            }
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("txtHint").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "getcustomer.asp?q=" + str, true);
-            xhttp.send();
-        }
-    </script>
+                        <!--#1 click me button to move to indexpage1-->
+                        <button onclick="myFunction()">ICON</button>
+                        <p id="foodIcon"></p>
+                        <p>A function is triggered when the button is clicked. The function outputs indexpage1.html?.</p>
 
 
 
+                        <script>
+                            //Function for #1
+                            function myFunction() {
+                                document.getElementById("demo").innerHTML = "Hello World";
+                            }
+                            $(document).ready(function() {
 
+                                        $(".button").click(function() {
+                                                    // get the value from the input
+                                                    var numCards = parseInt($('input').val());
 
+                                                    for (var i = 1; i <= numCards; i++) {
+                                                        // create the cards
+                                                        $(".container").append("<div class='card" + i + " cards'></div>") &&
+                                                            $(".card" + i).clone().appendTo(".container");
+                                                    }
+                        </script>
 
 
 </body>

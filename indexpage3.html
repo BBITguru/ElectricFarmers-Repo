@@ -11,6 +11,24 @@
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+<style>
+    div.row {
+        margin-top: 2%;
+        margin-left: 15%;
+    }
+    
+    div.section {
+        padding: 0;
+    }
+    
+    a.waves-effect.waves-light.btn-large {
+        margin-left: 2%;
+    }
+    
+    div.footer-copyright {
+        margin-left: 75%;
+    }
+</style>
 
 <body></body>
 <!--NAV BAR START-->
@@ -22,12 +40,22 @@
             <div class="nav-wrapper container">
                 <a href="#" class="brand-logo">Electric Farmers</a>
                 <ul class="right">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Grocery List</a></li>
-                    <li><a href="#">Meal Category</a></li>
-                    <li><a href="#">Store Locator</a></li>
+                    <div id="button"></div>
+                    <li><a href="indexlandingpage.html">Home</a>
+
+                        <div id="button"></div>
+                        <li> <a href="indexpage2.html">Grocery List</a>
+
+                            <div id="button"></div>
+                            <li><a href="indexpage3.html ">Meal Category</a>
+
+                                <div id="button"></div>
+                                <li><a href="indexpage4.html">Store Locator</a>
+                                </li>
+                            </li>
+                        </li>
+                    </li>
                 </ul>
-                </li>
             </div>
         </nav>
     </div>
@@ -37,12 +65,12 @@
 <!--FORM FOR SEARCH BAR SECTION-->
 <div class="row">
     <div class="col s12 m10">
-        <div class="searchBox">
+        <div class="card">
             <div class="card">
                 <div id="index-banner" div class="parallax-container">
                     <form action="/action_page.php">
                         <input type="text" id="search" name="searchHere" placeholder="Search">
-                        <input type="submit" value="Submit">
+                        <a class="waves-effect waves-light btn-large">Submit</a>
                     </form>
                 </div>
             </div>
@@ -56,57 +84,57 @@
 <!--START EMPTY CARDS TO HOLD API SEARCH RESULTS-->
 <!--WILL HAVE TO USE JQUERY TO APPEND THE RESULTS TO PAGE THIS WILL ACT LIKE A VISUAL PLACEHOLDER UNTIL THAT STEP-->
 <!--COULD ADD A COLLAPSIBLE STRUCTURE TO EACH CARD-JS-->
-<div class="container">
-    <div class="section">
-        <div class="row">
+<div class="container ">
+    <div class="section ">
+        <div class="row ">
 
-            <div class="col s12 m3">
-                <div class=""></div>
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Recipe Card 1</span>
+            <div class="col s12 m3 ">
+                <div class=" "></div>
+                <div class="card blue-grey darken-1 ">
+                    <div class="card-content white-text ">
+                        <span class="card-title ">Meal 1</span>
                         <p>
                         </p>
                     </div>
-                    <div class="card-action">
+                    <div class="card-action ">
                     </div>
                 </div>
             </div>
 
-            <div class="col s12 m3">
-                <div class=""></div>
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Recipe Card 2</span>
+            <div class="col s12 m3 ">
+                <div class=" "></div>
+                <div class="card blue-grey darken-1 ">
+                    <div class="card-content white-text ">
+                        <span class="card-title ">Meal 2</span>
                         <p>
                     </div>
-                    <div class="card-action">
+                    <div class="card-action ">
                     </div>
                 </div>
-                <p class="light"></p>
+                <p class="light "></p>
             </div>
 
 
-            <div class="col s12 m3">
-                <div class=""></div>
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Recipe Card 3</span>
+            <div class="col s12 m3 ">
+                <div class=" "></div>
+                <div class="card blue-grey darken-1 ">
+                    <div class="card-content white-text ">
+                        <span class="card-title ">Meal 3</span>
                         <p>
                     </div>
-                    <div class="card-action">
+                    <div class="card-action ">
                     </div>
                 </div>
             </div>
 
-            <div class="col s12 m3">
-                <div class=""></div>
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Recipe Card 4</span>
+            <div class="col s12 m3 ">
+                <div class=" "></div>
+                <div class="card blue-grey darken-1 ">
+                    <div class="card-content white-text ">
+                        <span class="card-title ">Meal 4</span>
                         <p>
                     </div>
-                    <div class="card-action">
+                    <div class="card-action ">
                     </div>
                 </div>
             </div>
@@ -115,54 +143,54 @@
 
 
             <!--SECOND ROW EMPTY CARDS-->
-            <div class="row">
-                <div class="col s12 m3">
-                    <div class=""></div>
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title">Recipe Card 5</span>
+            <div class="row ">
+                <div class="col s12 m3 ">
+                    <div class=" "></div>
+                    <div class="card blue-grey darken-1 ">
+                        <div class="card-content white-text ">
+                            <span class="card-title ">Meal 5</span>
                             <p>
                             </p>
                         </div>
-                        <div class="card-action">
+                        <div class="card-action ">
                         </div>
                     </div>
                 </div>
 
 
-                <div class="col s12 m3">
-                    <div class=""></div>
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title">Recipe Card 6</span>
+                <div class="col s12 m3 ">
+                    <div class=" "></div>
+                    <div class="card blue-grey darken-1 ">
+                        <div class="card-content white-text ">
+                            <span class="card-title ">Meal 6</span>
                             <p>
                         </div>
-                        <div class="card-action">
+                        <div class="card-action ">
                         </div>
                     </div>
-                    <p class="light"></p>
+                    <p class="light "></p>
                 </div>
 
 
-                <div class="col s12 m3">
-                    <div class=""></div>
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title">Recipe Card 7</span>
+                <div class="col s12 m3 ">
+                    <div class=" "></div>
+                    <div class="card blue-grey darken-1 ">
+                        <div class="card-content white-text ">
+                            <span class="card-title ">Meal 7</span>
                             <p>
                         </div>
-                        <div class="card-action">
+                        <div class="card-action ">
                         </div>
                     </div>
                 </div>
 
-                <div class="col s12 m3">
-                    <div class=""></div>
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title">Recipe Card 8</span>
+                <div class="col s12 m3 ">
+                    <div class=" "></div>
+                    <div class="card blue-grey darken-1 ">
+                        <div class="card-content white-text ">
+                            <span class="card-title ">Meal 8</span>
                         </div>
-                        <div class="card-action">
+                        <div class="card-action ">
                         </div>
                     </div>
                 </div>
@@ -171,13 +199,24 @@
     </div>
 </div>
 <!--END DISPLAY CARDS-->
-
+<script>
+    function recipeCard(someContent) {
+        var parent = $('<div>').addClass('col s12 m3');
+        var child1 = $('<div>').text();
+        var child2 = $('<div>').addClass('card blue-grey darken-1');
+        var grandchild1 = $('<div>').addClass('card-content white-text').html('<span class = "card-title " > Meal 4 </span><p>');
+        var grandchild2 = $('<div>').addClass('card-action');
+        child2.append(grandchild1, grandchild2);
+        parent.append(child1, child2);
+        $('#someId').append(parent);
+    }
+</script>
 
 <!--FOOTER SECTION-->
-<footer class="page-footer teal">
-    <div class="footer-copyright">
-        Copyright &copy; 2015 Electric Farmers | All rights
-        <a class="brown-text text-lighten-3" href=></a>
+<footer class="page-footer teal ">
+    <div class="footer-copyright ">
+        Copyright &copy; 2018 Electric Farmers | All rights
+        <a class="brown-text text-lighten-3 " href=></a>
     </div>
 </footer>
 <!--END FOOTER SECTION-->
@@ -185,9 +224,9 @@
 
 
 <!-- SCRIPTS-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="assets/js/materialize.js"></script>
-<script src="assets/js/init.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+<script src="assets/js/materialize.js "></script>
+<script src="assets/js/init.js "></script>
 
 <script>
 </script>

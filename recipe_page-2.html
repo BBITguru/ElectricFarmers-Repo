@@ -14,11 +14,9 @@
 
 <body>
     <style>
-        /* styling for this page*/
         #index-banner {
             color: black;
         }
-
     </style>
 </body>
 <!--NAV BAR START-->
@@ -86,12 +84,12 @@
 
 <div id="footDiv">
     <!--FOOTER SECTION-->
-        <footer class="page-footer teal">
-            <div class="footer-copyright">
-                Copyright &copy; 2015 Electric Farmers | All rights
-                <a class="brown-text text-lighten-3" href=></a>
-            </div>
-        </footer>
+    <footer class="page-footer teal">
+        <div class="footer-copyright">
+            Copyright &copy; 2015 Electric Farmers | All rights
+            <a class="brown-text text-lighten-3" href=></a>
+        </div>
+    </footer>
     <!--END FOOTER SECTION-->
 </div>
 
@@ -101,10 +99,9 @@
     <script src="assets/js/init.js"></script>
 
 <script>
-  
     function runSearch(e) {
         e.preventDefault()
-        var food = $('#search').val() ;
+        var food = $('#search').val();
         var appId = "&app_id=c352aed6";
         var appKey = "&app_key=ac5ca67ecd16815f2532e5b62a701164";
         var limit = "&from=0&to=6"
@@ -114,7 +111,7 @@
         $.ajax({
             url: queryURL,
             method: 'GET'
-        }).done(function (response) {
+        }).done(function(response) {
             console.log(response);
 
             for (var j = 0; j < limit2; j++) {
@@ -137,11 +134,6 @@
 
     $('#submit').on('click', runSearch);
     console.log(runSearch)
-
-    
-
-
-
 
 </script>
 </body>

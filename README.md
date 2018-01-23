@@ -1,23 +1,14 @@
 # ElectricFarmers-Repo
 
-<<<<<<< HEAD
 Welcome to Electric Farmers Group Project 1
 
 
 
-=======
-#electricFarmers Project 1
-01.11.2018
->>>>>>> 5cd89ee089c5ec2da9355180c83c11ada6052c2d
 John Parker Rhodes 
 Leslie Washburn
 Nathan Young 
 Overview
 Our project is Electric Food Farmers.  As a team we will be creating a dynamic, modern website that assists our busy client in planning their meals and shopping for ingredients at local markets. The project will allow users to search for healthy and delicious recipes, store an ingredient list and find local stores that carry the products on the list. 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5cd89ee089c5ec2da9355180c83c11ada6052c2d
 Goals
 Identify recipes and ingredients needed to prepare meals
 Identifies local stores that carry the needed ingredients for meal prep
@@ -47,7 +38,6 @@ https://developers.google.com/places/web-service/?hl=en_US
 API Key: AIzaSyDDaq099UzXGx4eHUjGHzqHnfUNABlZx8g
 Workflow
 The team will use Zen Hub to manage the Website Design process and track delegate responsibility. 
-<<<<<<< HEAD
 
 
 
@@ -57,5 +47,3 @@ The team will use Zen Hub to manage the Website Design process and track delegat
 
 
 
-=======
->>>>>>> 5cd89ee089c5ec2da9355180c83c11ada6052c2d

@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--SANDBOX PAGE 2 - GROCERY LIST AND DIRECTIONS-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -145,12 +144,44 @@
     <!--END FOOTER SECTION-->
 
 
-    <!--  Scripts-->
+    <!-- SCRIPTS-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="assets/js/materialize.js"></script>
     <script src="assets/js/init.js"></script>
 
     <script>
+        //MUST CHANGE CODE / FUNCTIONS TO RETURN GROCERY LIST AND RECIPE DIRECTIONS
+        function runSearch(e) {
+            e.preventDefault()
+            var food = $('#search').val();
+            var appId = "&app_id=c352aed6";
+            var appKey = "&app_key=ac5ca67ecd16815f2532e5b62a701164";
+            var limit = "&from=0&to=6"
+            var limit2 = 6
+            var queryURL = "https://api.edamam.com/search?q=" + food + appId + appKey + limit;
+
+            $.ajax({
+                url: queryURL,
+                method: 'GET'
+            }).done(function(response) {
+                console.log(response);
+
+                for (var j = 0; j < limit2; j++) {
+
+                    var recipeTitle = $("<h5>").text(response.hits[j].recipe.label);
+                    var recipeImage = $("<img>").attr("src", response.hits[j].recipe.image);
+                    var recipeURL = $("<a>").attr("href", response.hits[j].recipe.url).append(recipeTitle);
+
+                    var recDiv = $('<div class="col s12 m6 l3">').append(recipeTitle, recipeImage)
+                    $("#recipe-results").append(recDiv);
+
+                }
+
+            })
+        }
+
+        $('#submit').on('click', runSearch);
+        console.log(runSearch)
     </script>
 </body>
 

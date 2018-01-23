@@ -62,174 +62,85 @@
 </nav>
 <!---NAV BAR END-->
 
-<!--FORM FOR SEARCH BAR SECTION-->
-<div class="row">
-    <div class="col s12 m10">
-        <div class="card">
-            <div class="card">
-                <div id="index-banner" div class="parallax-container">
-                    <form action="/action_page.php">
-                        <input type="text" id="search" name="searchHere" placeholder="Search">
-                        <a class="waves-effect waves-light btn-large">Submit</a>
-                    </form>
+<<!--FORM FOR SEARCH BAR SECTION-->
+    <div class="row">
+        <div class="col s12 m10">
+            <div class="searchBox">
+                <div class="card" id="recSearch">
+                    <div id="index-banner">
+                        <form action="/action_page.php">
+                            <input type="text" id="search" name="searchHere" placeholder="Search">
+                            <button id="submit" type="submit" value="Submit">Search</button>
+                            <a class="waves-effect waves-light btn-large">Search</a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--CLOSE SEARCH BAR SECTION-->
+    <!--CLOSE SEARCH BAR SECTION-->>
 
 
 
-<!--START EMPTY CARDS TO HOLD API SEARCH RESULTS-->
-<!--WILL HAVE TO USE JQUERY TO APPEND THE RESULTS TO PAGE THIS WILL ACT LIKE A VISUAL PLACEHOLDER UNTIL THAT STEP-->
-<!--COULD ADD A COLLAPSIBLE STRUCTURE TO EACH CARD-JS-->
-<div class="container ">
-    <div class="section ">
-        <div class="row ">
-
-            <div class="col s12 m3 ">
-                <div class=" "></div>
-                <div class="card blue-grey darken-1 ">
-                    <div class="card-content white-text ">
-                        <span class="card-title ">Meal 1</span>
-                        <p>
-                        </p>
-                    </div>
-                    <div class="card-action ">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m3 ">
-                <div class=" "></div>
-                <div class="card blue-grey darken-1 ">
-                    <div class="card-content white-text ">
-                        <span class="card-title ">Meal 2</span>
-                        <p>
-                    </div>
-                    <div class="card-action ">
-                    </div>
-                </div>
-                <p class="light "></p>
-            </div>
-
-
-            <div class="col s12 m3 ">
-                <div class=" "></div>
-                <div class="card blue-grey darken-1 ">
-                    <div class="card-content white-text ">
-                        <span class="card-title ">Meal 3</span>
-                        <p>
-                    </div>
-                    <div class="card-action ">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m3 ">
-                <div class=" "></div>
-                <div class="card blue-grey darken-1 ">
-                    <div class="card-content white-text ">
-                        <span class="card-title ">Meal 4</span>
-                        <p>
-                    </div>
-                    <div class="card-action ">
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <!--SECOND ROW EMPTY CARDS-->
+    <!--START EMPTY CARDS TO HOLD API SEARCH RESULTS-->
+    <!--WILL HAVE TO USE JQUERY TO APPEND THE RESULTS TO PAGE THIS WILL ACT LIKE A VISUAL PLACEHOLDER UNTIL THAT STEP-->
+    <!--COULD ADD A COLLAPSIBLE STRUCTURE TO EACH CARD-JS-->
+    <div class="container ">
+        <div class="section ">
             <div class="row ">
                 <div class="col s12 m3 ">
-                    <div class=" "></div>
+                    <div class=""></div>
                     <div class="card blue-grey darken-1 ">
                         <div class="card-content white-text ">
-                            <span class="card-title ">Meal 5</span>
-                            <p>
-                            </p>
-                        </div>
-                        <div class="card-action ">
-                        </div>
+                            <span class="card-title ">Meal Category</span>
+                            <p>What does Edaman return here in p tag?</p>
+                            <p>Do we want a drop down in search bar to help with categories</p>
+                            <img>Do we want an image here?</div>
                     </div>
-                </div>
-
-
-                <div class="col s12 m3 ">
-                    <div class=" "></div>
-                    <div class="card blue-grey darken-1 ">
-                        <div class="card-content white-text ">
-                            <span class="card-title ">Meal 6</span>
-                            <p>
-                        </div>
-                        <div class="card-action ">
-                        </div>
-                    </div>
-                    <p class="light "></p>
-                </div>
-
-
-                <div class="col s12 m3 ">
-                    <div class=" "></div>
-                    <div class="card blue-grey darken-1 ">
-                        <div class="card-content white-text ">
-                            <span class="card-title ">Meal 7</span>
-                            <p>
-                        </div>
-                        <div class="card-action ">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3 ">
-                    <div class=" "></div>
-                    <div class="card blue-grey darken-1 ">
-                        <div class="card-content white-text ">
-                            <span class="card-title ">Meal 8</span>
-                        </div>
-                        <div class="card-action ">
-                        </div>
+                    <div class="card-action ">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--END DISPLAY CARDS-->
-<script>
-    function recipeCard(someContent) {
-        var parent = $('<div>').addClass('col s12 m3');
-        var child1 = $('<div>').text();
-        var child2 = $('<div>').addClass('card blue-grey darken-1');
-        var grandchild1 = $('<div>').addClass('card-content white-text').html('<span class = "card-title " > Meal 4 </span><p>');
-        var grandchild2 = $('<div>').addClass('card-action');
-        child2.append(grandchild1, grandchild2);
-        parent.append(child1, child2);
-        $('#someId').append(parent);
-    }
-</script>
-
-<!--FOOTER SECTION-->
-<footer class="page-footer teal ">
-    <div class="footer-copyright ">
-        Copyright &copy; 2018 Electric Farmers | All rights
-        <a class="brown-text text-lighten-3 " href=></a>
     </div>
-</footer>
-<!--END FOOTER SECTION-->
 
 
 
-<!-- SCRIPTS-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
-<script src="assets/js/materialize.js "></script>
-<script src="assets/js/init.js "></script>
 
-<script>
-</script>
-</body>
+
+    <!--END DISPLAY CARDS-->
+    <script>
+        function recipeCard(someContent) {
+            var parent = $('<div>').addClass('col s12 m3');
+            var child1 = $('<div>').text();
+            var child2 = $('<div>').addClass('card blue-grey darken-1');
+            var grandchild1 = $('<div>').addClass('card-content white-text').html('<span class = "card-title " > Meal 4 </span><p>');
+            var grandchild2 = $('<div>').addClass('card-action');
+            child2.append(grandchild1, grandchild2);
+            parent.append(child1, child2);
+            $('#someId').append(parent);
+        }
+    </script>
+
+    <!--FOOTER SECTION-->
+    <footer class="page-footer teal ">
+        <div class="footer-copyright ">
+            Copyright &copy; 2018 Electric Farmers | All rights
+            <a class="brown-text text-lighten-3 " href=></a>
+        </div>
+    </footer>
+    <!--END FOOTER SECTION-->
+
+
+
+    <!-- SCRIPTS-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+    <script src="assets/js/materialize.js "></script>
+    <script src="assets/js/init.js "></script>
+
+    <script>
+    </script>
+    </body>
 
 </html>

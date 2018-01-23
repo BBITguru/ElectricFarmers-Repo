@@ -1,9 +1,7 @@
 # ElectricFarmers-Repo
 
-Welcome to Electric Farmers Group Project 1
-
-
-
+#electricFarmers Project 1
+01.11.2018
 John Parker Rhodes 
 Leslie Washburn
 Nathan Young 
@@ -38,12 +36,3 @@ https://developers.google.com/places/web-service/?hl=en_US
 API Key: AIzaSyDDaq099UzXGx4eHUjGHzqHnfUNABlZx8g
 Workflow
 The team will use Zen Hub to manage the Website Design process and track delegate responsibility. 
-
-
-
-
-
-
-
-
-

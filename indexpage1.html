@@ -34,8 +34,29 @@
     }
 </style>
 
-<body></body>
+<body>
+    <style>
+        /* styling for this page*/
+        #index-banner {
+            color: black;
+        }
+
+        #recipe-div {
+            padding: 20px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+    </style>
+</body>
+<!--NAV BAR START-->
+=======
+
 <!--NAV BAR START FIX!!!!!-->
+
 <nav class="white" role="navigation">
     <ul class="right hide-on-med-and-down">
     </ul>
@@ -70,20 +91,7 @@
 
 <!---NAV BAR END-->
 
-<<<<<<< HEAD
-<<!--FORM FOR SEARCH BAR SECTION-->
-    <div class="row">
-        <div class="col s12 m10">
-            <div class="searchBox">
-                <div class="card" id="recSearch">
-                    <div id="index-banner">
-                        <form action="/action_page.php">
-                            <input type="text" id="search" name="searchHere" placeholder="Search">
-                            <button id="submit" type="submit" value="Submit">Search</button>
-                            <a class="waves-effect waves-light btn-large">Search</a>
-                        </form>
-                    </div>
-=======
+
 <!--FORM FOR SEARCH BAR SECTION-->
 <div class="row">
     <div class="col s12 m10">
@@ -91,15 +99,22 @@
             <div class="card">
                 <div id="index-banner" div class="parallax-container">
                     <form action="/action_page.php">
-                        <input type="text" id="search" name="searchHere" placeholder="Search">
+                        <input type="text" id="search" name="searchHere" placeholder="Search" class="black-text">
                         <a class="waves-effect waves-light btn-large">Submit</a>
+
+
                     </form>
->>>>>>> master
                 </div>
             </div>
         </div>
     </div>
-    <!--CLOSE SEARCH BAR SECTION-->
+
+</div>
+
+
+<!-- test form user input-->
+
+<!--CLOSE SEARCH BAR SECTION-->
 
 
 
@@ -118,7 +133,39 @@
                         <h5>H5 TAG FOR RECIPE TITLE</h5>
                         <p>P TAG FOR JQUERY?
                         </p>
-                        <img>IMAGE GOES HERE JQUERY</div>
+
+                    </div>
+                    <div class="card-action">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+                <div class=""></div>
+                <div class="card blue-grey darken-1" id="food-div">
+                    <div class="card-content white-text">
+                        <span class="card-title">Recipe Card 2</span>
+                        <p>
+                    </div>
+                    <div class="card-action">
+                    </div>
+                </div>
+                <p class="light"></p>
+            </div>
+
+
+            <div class="col s12 m3">
+                <div class=""></div>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Recipe Card 3</span>
+                        <p>
+                    </div>
+                    <div class="card-action">
+                    </div>
+                </div>
+            </div>
+
 
 
                     <div class="card-action">DIV.CARD-ACTION-SHOULD THIS BE URL TO RECIPE?</div>
@@ -126,8 +173,12 @@
             </div>
         </div>
     </div>
-    </div>
-    <!--END DISPLAY CARDS-->
+
+</div>
+<!--END DISPLAY CARDS-->
+<div class="row">
+    <div class="col s12 m3" id="recipe-div"></div>
+</div>
 
 
     <!--FOOTER SECTION-->
@@ -146,8 +197,58 @@
     <script src="assets/js/materialize.js"></script>
     <script src="assets/js/init.js"></script>
 
-    <script>
-    </script>
-    </body>
+
+<script>
+  
+
+
+    function runSearch(e) {
+        e.preventDefault()
+        var food = $('#search').val() ;
+
+        var appId = "&app_id=c352aed6";
+        var appKey = "&app_key=ac5ca67ecd16815f2532e5b62a701164";
+        var limit = "&from=0&to=6"
+        var limit2 = 5
+        var queryURL = "https://api.edamam.com/search?q=" + food + appId + appKey + limit;
+
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).done(function (response) {
+            console.log(response);
+
+            for (var j = 0; j < limit2; j++) {
+
+              var recipeTitle = $("<h5>").text(response.hits[j].recipe.label);
+                var recipeURL = $("<a>").attr("href", response.hits[j].recipe.shareAs);
+                var recipeImage = $("<img>").attr("src", response.hits[j].recipe.image);
+
+               
+                $(".card-action").prepend(recipeTitle, recipeURL, recipeImage);
+            }
+
+        })
+    }
+
+    function getRecipe(food) {
+        
+        
+        
+    }
+   
+
+   
+
+    $('#submit').on('click', runSearch)
+
+    
+
+
+
+
+</script>
+</body>
+
 
 </html>

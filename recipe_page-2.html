@@ -66,6 +66,7 @@
 <!-- START EMPTY CARDS TO HOLD API SEARCH RESULTS
 <!-WILL HAVE TO USE JQUERY TO APPEND THE RESULTS TO PAGE THIS WILL ACT LIKE A VISUAL PLACEHOLDER UNTIL THAT STEP-->
 <!--COULD ADD A COLLAPSIBLE STRUCTURE TO EACH CARD-JS-->
+
 <!--FIRST ROW OF EMPTY CARDS-->
 
 <div class="container">
@@ -118,12 +119,16 @@
                 var recipeTitle = $("<h5>").text(response.hits[j].recipe.label);
                 var recipeImage = $("<img>").attr("src", response.hits[j].recipe.image);
                 var recipeURL = $("<a>").attr("href", response.hits[j].recipe.url).append(recipeTitle);
+                    console.log(recipeURL);
 
-                var recDiv = $('<div class="col s12 m6 l3">').append(recipeTitle, recipeImage)
+        // recipe URL path - need to use for clickable link
+            //["0"].outerHTML
+            //["0"].href
+
+                var recDiv = $('<div class="col s12 m6 l3">').append(recipeTitle, recipeImage);
                 $("#recipe-results").append(recDiv);
-
+                
             }
-
         })
     }
 

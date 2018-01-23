@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang ="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -9,43 +8,11 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />  
 </head>
 
-<!--STYLE-->
-<style>
-    /* Always set the map height explicitly to define the size of the div
-     * element that contains the map. */
-    
-    #map {
-        height: 100%;
-    }
-    /* Optional: Makes the sample page fill the window. */
-    
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    
-    div.row {
-        margin-top: 2%;
-        margin-left: 15%;
-    }
-    
-    div.section {
-        padding: 0;
-    }
-    
-    div.footer-copyright {
-        margin-left: 75%;
-    }
-</style>
-<!--END STYLE-->
-
 <body>
-    <!--NAV BAR START-->
+  <!--NAV BAR START-->
     <nav class="white" role="navigation">
         <ul class="right hide-on-med-and-down">
         </ul>
@@ -54,286 +21,177 @@
                 <div class="nav-wrapper container">
                     <a href="#" class="brand-logo">Electric Farmers</a>
                     <ul class="right">
-                        <div id="button"></div>
-                        <li><a href="indexlandingpage.html">Home</a>
-
-                            <div id="button"></div>
-                            <li> <a href="indexpage2.html">Grocery List</a>
-
-                                <div id="button"></div>
-                                <li><a href="indexpage3.html ">Meal Category</a>
-
-                                    <div id="button"></div>
-                                    <li><a href="indexpage4.html">Store Locator</a>
-                                    </li>
-                                </li>
-                            </li>
-                        </li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Grocery List</a></li>
+                        <li><a href="#">Meal Category</a></li>
+                        <li><a href="#">Store Locator</a></li>
                     </ul>
+                    </li>
                 </div>
             </nav>
         </div>
     </nav>
+  <!---NAV BAR END-->
 
-
-
-    <!---NAV BAR END-->
-
-
-    <!--FORM FOR SEARCH BAR SECTION-->
-
-    <body style="margin:0px; padding:0px;" onload="initMap()">
+  <!--FORM FOR SEARCH BAR SECTION-->
+    <body onload="initMap()">
         <div>
             <div class="row">
                 <div class="col s12 m10">
                     <div class="searchBox">
-                        <div class="card">
-                            <label for="raddressInput">Search location:</label>
-                            <input type="text" id="addressInput" size="15" />
-                            <label for="radiusSelect">Radius:</label>
-                            <select id="radiusSelect" label="Radius">
-          <option value="50" selected>50 kms</option>
-          <option value="30">30 kms</option>
-          <option value="20">20 kms</option>
-          <option value="10">10 kms</option>
-          </select>
+                        <div class="card" id="searchCard">
+                        <!-- Grocery Stores in your area -->
+                            <label for="rsearchInput">Store Search</label>
+                            <input type="text" id="searchInput" size="15" />
+                         <a class="waves-effect waves-light btn-large">Submit</a>
                         </div>
-                        <a class="waves-effect waves-light btn-large">Search</a>
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <select id="locationSelect" style="width: 10%; visibility: hidden"></select></div>
-        <div id="map" style="width: 100%; height: 90%"></div>
-
-
-        </form>
-        <!--CLOSE SEARCH BAR SECTION-->
-
-
-        <!--FOOTER SECTION-->
-        <footer class="page-footer teal">
-            <div class="footer-copyright">
-                Copyright &copy; 2018 Electric Farmers | All rights
-                <a class="brown-text text-lighten-3" href=></a>
-            </div>
-        </footer>
-        </a>
+            <select id="locationSelect" style="width: 10%; visibility: hidden"></select>
         </div>
-        </div>
-        </div>
+  <!--CLOSE SEARCH BAR SECTION-->
 
-        <!--END FOOTER SECTION-->
+  <!-- MAPS PLACES SEARCH START -->
+  <div id="map"></div>
 
-        <!--SCRIPT-->
-        <script>
-            var map;
-            var markers = [];
-            var infoWindow;
-            var locationSelect;
+  <!--FOOTER SECTION-->
+      <footer class="page-footer teal">
+          <div class="footer-copyright">
+              Copyright &copy; 2018 Electric Farmers | All rights
+              <a class="brown-text text-lighten-3" href=></a>
+          </div>
+      </footer>
+      <!-- </a>
+      </div>
+      </div>
+      </div> -->
+  <!--END FOOTER SECTION-->
 
-            function initMap() {
-                var savannah = {
-                    lat: 32.076176,
-                    lng: -81.088371
+    <script>
+      var center;
+      var pos;
+      var input;
+      
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a pick list containing a mix of places and predicted search terms.
+      function initMap() {
+        
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('searchInput');
+        console.log(input);
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          // Savannah, Georgia - Default
+            // center: {lat: 32.076176, lng: -81.088371},
+          // Syndey, Australia to test for GeoLocation
+            // center: {lat: -34.397, lng: 150.644},
+          zoom: 14,
+          mapTypeId: 'roadmap'
+        });
+        var infoWindow = new google.maps.InfoWindow;
+
+        // GETS USERS GEOLOCATION
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = center = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
                 };
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: savannah,
-                    zoom: 11,
-                    mapTypeId: 'roadmap',
-                    mapTypeControlOptions: {
-                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-                    }
-                });
-                infoWindow = new google.maps.InfoWindow();
+                  console.log(pos);
+                  console.log(infoWindow);
+              infoWindow.setPosition(pos);
+              infoWindow.setContent('Location found.');
+              infoWindow.open(map);
+              map.setCenter(pos);
+          },
+          function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
 
-                searchButton = document.getElementById("searchButton").onclick = searchLocations;
+        var searchBox = new google.maps.places.SearchBox(input);
 
-                locationSelect = document.getElementById("locationSelect");
-                locationSelect.onchange = function() {
-                    var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
-                    if (markerNum != "none") {
-                        google.maps.event.trigger(markers[markerNum], 'click');
-                    }
-                };
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
             }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
 
-            function searchLocations() {
-                var address = document.getElementById("addressInput").value;
-                var geocoder = new google.maps.Geocoder();
-                geocoder.geocode({
-                    address: address
-                }, function(results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        searchLocationsNear(results[0].geometry.location);
-                    } else {
-                        alert(address + ' not found');
-                    }
-                });
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
             }
+          });
+          map.fitBounds(bounds);
+        });
+      }
 
-            function clearLocations() {
-                infoWindow.close();
-                for (var i = 0; i < markers.length; i++) {
-                    markers[i].setMap(null);
-                }
-                markers.length = 0;
+      // Browser doesn't support Geolocation Function
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+      
+  //   var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+  //   var marker = new google.maps.Marker({
+  //   position: myLatLng,
+  //   map: map,
+  //   icon: iconBase + '/assets/images/shopping-cart (2).png'
+  // });
 
-                locationSelect.innerHTML = "";
-                var option = document.createElement("option");
-                option.value = "none";
-                option.innerHTML = "See all results:";
-                locationSelect.appendChild(option);
-            }
-
-            function searchLocationsNear(center) {
-                clearLocations();
-
-                var radius = document.getElementById('radiusSelect').value;
-                var searchUrl = 'storelocator.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
-                downloadUrl(searchUrl, function(data) {
-                    var xml = parseXml(data);
-                    var markerNodes = xml.documentElement.getElementsByTagName("marker");
-                    var bounds = new google.maps.LatLngBounds();
-                    for (var i = 0; i < markerNodes.length; i++) {
-                        var id = markerNodes[i].getAttribute("id");
-                        var name = markerNodes[i].getAttribute("name");
-                        var address = markerNodes[i].getAttribute("address");
-                        var distance = parseFloat(markerNodes[i].getAttribute("distance"));
-                        var latlng = new google.maps.LatLng(
-                            parseFloat(markerNodes[i].getAttribute("lat")),
-                            parseFloat(markerNodes[i].getAttribute("lng")));
-
-                        createOption(name, distance, i);
-                        createMarker(latlng, name, address);
-                        bounds.extend(latlng);
-                    }
-                    map.fitBounds(bounds);
-                    locationSelect.style.visibility = "visible";
-                    locationSelect.onchange = function() {
-                        var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
-                        google.maps.event.trigger(markers[markerNum], 'click');
-                    };
-                });
-            }
-
-            function createMarker(latlng, name, address) {
-                var html = "<b>" + name + "</b> <br/>" + address;
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: latlng
-                });
-                google.maps.event.addListener(marker, 'click', function() {
-                    infoWindow.setContent(html);
-                    infoWindow.open(map, marker);
-                });
-                markers.push(marker);
-            }
-
-            function createOption(name, distance, num) {
-                var option = document.createElement("option");
-                option.value = num;
-                option.innerHTML = name;
-                locationSelect.appendChild(option);
-            }
-
-            function downloadUrl(url, callback) {
-                var request = window.ActiveXObject ?
-                    new ActiveXObject('Microsoft.XMLHTTP') :
-                    new XMLHttpRequest;
-
-                request.onreadystatechange = function() {
-                    if (request.readyState == 4) {
-                        request.onreadystatechange = doNothing;
-                        callback(request.responseText, request.status);
-                    }
-                };
-
-                request.open('GET', url, true);
-                request.send(null);
-            }
-
-            function parseXml(str) {
-                if (window.ActiveXObject) {
-                    var doc = new ActiveXObject('Microsoft.XMLDOM');
-                    doc.loadXML(str);
-                    return doc;
-                } else if (window.DOMParser) {
-                    return (new DOMParser).parseFromString(str, 'text/xml');
-                }
-            }
-
-            // Google places Searchbox Script START //
-
-            // Create the search box and link it to the UI element.
-            var input = document.getElementById('pac-input');
-            var searchBox = new google.maps.places.SearchBox(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function() {
-                searchBox.setBounds(map.getBounds());
-            });
-
-            var markers = [];
-            // Listen for the event fired when the user selects a prediction and retrieve
-            // more details for that place.
-            searchBox.addListener('places_changed', function() {
-                var places = searchBox.getPlaces();
-
-                if (places.length == 0) {
-                    return;
-                }
-
-                // Clear out the old markers.
-                markers.forEach(function(marker) {
-                    marker.setMap(null);
-                });
-                markers = [];
-
-                // For each place, get the icon, name and location.
-                var bounds = new google.maps.LatLngBounds();
-                places.forEach(function(place) {
-                    if (!place.geometry) {
-                        console.log("Returned place contains no geometry");
-                        return;
-                    }
-                    var icon = {
-                        url: place.icon,
-                        size: new google.maps.Size(71, 71),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(17, 34),
-                        scaledSize: new google.maps.Size(25, 25)
-                    };
-
-                    // Create a marker for each place.
-                    markers.push(new google.maps.Marker({
-                        map: map,
-                        icon: icon,
-                        title: place.name,
-                        position: place.geometry.location
-                    }));
-
-                    if (place.geometry.viewport) {
-                        // Only geocodes have viewport.
-                        bounds.union(place.geometry.viewport);
-                    } else {
-                        bounds.extend(place.geometry.location);
-                    }
-                });
-                map.fitBounds(bounds);
-            });
-            // Google places Searchbox Script END //
-
-            function doNothing() {}
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqbmFkjcZqKGhM9mzvzuycp_CgAr2vGbs&callback=initMap&libraries=places&callback=initAutocomplete">
-        </script>
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="assets/js/materialize.js"></script>
-        <script src="assets/js/init.js"></script>
-        </script>
-    </body>
-
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqbmFkjcZqKGhM9mzvzuycp_CgAr2vGbs&libraries=places&callback=initMap"
+          async defer>
+          </script>
+  </body>
 </html>

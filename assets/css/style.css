@@ -167,3 +167,11 @@ footer.page-footer {
   }
 /* </style> */
 /* <!--END maps.html STYLEs--> */
+
+.searchBox, #recSearch {
+  height: 100px;
+}
+
+/* #recSearch {
+  max-width: 300px;
+} */

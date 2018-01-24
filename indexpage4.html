@@ -1,4 +1,4 @@
-<html lang ="en">
+<html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,11 +8,17 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />  
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
+<style>
+    label {
+        font-size: 15px;
+    }
+</style>
+
 <body>
-  <!--NAV BAR START-->
+    <!--NAV BAR START-->
     <nav class="white" role="navigation">
         <ul class="right hide-on-med-and-down">
         </ul>
@@ -31,19 +37,21 @@
             </nav>
         </div>
     </nav>
-  <!---NAV BAR END-->
+    <!---NAV BAR END-->
 
-  <!--FORM FOR SEARCH BAR SECTION-->
+    <!--FORM FOR SEARCH BAR SECTION-->
+
     <body onload="initMap()">
         <div>
             <div class="row">
                 <div class="col s12 m10">
                     <div class="searchBox">
                         <div class="card" id="searchCard">
-                        <!-- Grocery Stores in your area -->
+                            <!-- Grocery Stores in your area -->
                             <label for="rsearchInput">Store Search</label>
                             <input type="text" id="searchInput" size="15" />
-                         <a class="waves-effect waves-light btn-large">Submit</a>
+
+                            <a class="waves-effect waves-light btn-large">Submit</a>
                         </div>
                     </div>
                 </div>
@@ -52,146 +60,145 @@
         <div>
             <select id="locationSelect" style="width: 10%; visibility: hidden"></select>
         </div>
-  <!--CLOSE SEARCH BAR SECTION-->
+        <!--CLOSE SEARCH BAR SECTION-->
 
-  <!-- MAPS PLACES SEARCH START -->
-  <div id="map"></div>
+        <!-- MAPS PLACES SEARCH START -->
+        <div id="map"></div>
 
-  <!--FOOTER SECTION-->
-      <footer class="page-footer teal">
-          <div class="footer-copyright">
-              Copyright &copy; 2018 Electric Farmers | All rights
-              <a class="brown-text text-lighten-3" href=></a>
-          </div>
-      </footer>
-      <!-- </a>
+        <!--FOOTER SECTION-->
+        <footer class="page-footer teal">
+            <div class="footer-copyright">
+                Copyright &copy; 2018 Electric Farmers | All rights
+                <a class="brown-text text-lighten-3" href=></a>
+            </div>
+        </footer>
+        <!-- </a>
       </div>
       </div>
       </div> -->
-  <!--END FOOTER SECTION-->
+        <!--END FOOTER SECTION-->
 
-    <script>
-      var center;
-      var pos;
-      var input;
-      
-      // This example adds a search box to a map, using the Google Place Autocomplete
-      // feature. People can enter geographical searches. The search box will return a pick list containing a mix of places and predicted search terms.
-      function initMap() {
-        
-        // Create the search box and link it to the UI element.
-        var input = document.getElementById('searchInput');
-        console.log(input);
+        <script>
+            var center;
+            var pos;
+            var input;
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-          // Savannah, Georgia - Default
-            // center: {lat: 32.076176, lng: -81.088371},
-          // Syndey, Australia to test for GeoLocation
-            // center: {lat: -34.397, lng: 150.644},
-          zoom: 14,
-          mapTypeId: 'roadmap'
-        });
-        var infoWindow = new google.maps.InfoWindow;
+            // This example adds a search box to a map, using the Google Place Autocomplete
+            // feature. People can enter geographical searches. The search box will return a pick list containing a mix of places and predicted search terms.
+            function initMap() {
 
-        // GETS USERS GEOLOCATION
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-              var pos = center = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude
-                };
-                  console.log(pos);
-                  console.log(infoWindow);
-              infoWindow.setPosition(pos);
-              infoWindow.setContent('Location found.');
-              infoWindow.open(map);
-              map.setCenter(pos);
-          },
-          function() {
-              handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
+                // Create the search box and link it to the UI element.
+                var input = document.getElementById('searchInput');
+                console.log(input);
 
-        var searchBox = new google.maps.places.SearchBox(input);
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    // Savannah, Georgia - Default
+                    // center: {lat: 32.076176, lng: -81.088371},
+                    // Syndey, Australia to test for GeoLocation
+                    // center: {lat: -34.397, lng: 150.644},
+                    zoom: 14,
+                    mapTypeId: 'roadmap'
+                });
+                var infoWindow = new google.maps.InfoWindow;
+
+                // GETS USERS GEOLOCATION
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                            var pos = center = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+                            console.log(pos);
+                            console.log(infoWindow);
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent('Location found.');
+                            infoWindow.open(map);
+                            map.setCenter(pos);
+                        },
+                        function() {
+                            handleLocationError(true, infoWindow, map.getCenter());
+                        });
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+
+                var searchBox = new google.maps.places.SearchBox(input);
 
 
-        // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
-          searchBox.setBounds(map.getBounds());
-        });
+                // Bias the SearchBox results towards current map's viewport.
+                map.addListener('bounds_changed', function() {
+                    searchBox.setBounds(map.getBounds());
+                });
 
-        var markers = [];
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-          var places = searchBox.getPlaces();
+                var markers = [];
+                // Listen for the event fired when the user selects a prediction and retrieve
+                // more details for that place.
+                searchBox.addListener('places_changed', function() {
+                    var places = searchBox.getPlaces();
 
-          if (places.length == 0) {
-            return;
-          }
+                    if (places.length == 0) {
+                        return;
+                    }
 
-          // Clear out the old markers.
-          markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
+                    // Clear out the old markers.
+                    markers.forEach(function(marker) {
+                        marker.setMap(null);
+                    });
+                    markers = [];
 
-          // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
-          places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
+                    // For each place, get the icon, name and location.
+                    var bounds = new google.maps.LatLngBounds();
+                    places.forEach(function(place) {
+                        if (!place.geometry) {
+                            console.log("Returned place contains no geometry");
+                            return;
+                        }
+                        var icon = {
+                            url: place.icon,
+                            size: new google.maps.Size(71, 71),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(25, 25)
+                        };
+
+                        // Create a marker for each place.
+                        markers.push(new google.maps.Marker({
+                            map: map,
+                            icon: icon,
+                            title: place.name,
+                            position: place.geometry.location
+                        }));
+
+                        if (place.geometry.viewport) {
+                            // Only geocodes have viewport.
+                            bounds.union(place.geometry.viewport);
+                        } else {
+                            bounds.extend(place.geometry.location);
+                        }
+                    });
+                    map.fitBounds(bounds);
+                });
             }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
 
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
-
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
+            // Browser doesn't support Geolocation Function
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
             }
-          });
-          map.fitBounds(bounds);
-        });
-      }
 
-      // Browser doesn't support Geolocation Function
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-      
-  //   var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-  //   var marker = new google.maps.Marker({
-  //   position: myLatLng,
-  //   map: map,
-  //   icon: iconBase + '/assets/images/shopping-cart (2).png'
-  // });
+            //   var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+            //   var marker = new google.maps.Marker({
+            //   position: myLatLng,
+            //   map: map,
+            //   icon: iconBase + '/assets/images/shopping-cart (2).png'
+            // });
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqbmFkjcZqKGhM9mzvzuycp_CgAr2vGbs&libraries=places&callback=initMap" async defer>
+        </script>
+    </body>
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqbmFkjcZqKGhM9mzvzuycp_CgAr2vGbs&libraries=places&callback=initMap"
-          async defer>
-          </script>
-  </body>
 </html>

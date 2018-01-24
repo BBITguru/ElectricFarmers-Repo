@@ -107,6 +107,8 @@
 <script src="assets/js/init.js"></script>
 
 <script>
+    var recipes;
+
     function runSearch(e) {
         e.preventDefault()
         var food = $('#search').val();
@@ -121,27 +123,41 @@
             method: 'GET'
         }).done(function(response) {
             console.log(response);
-
+            recipes = response.hits;
             for (var j = 0; j < limit2; j++) {
-
+                //var recLink = $('<a>').attr('href', response.hits[j].recipe.shareAs)
                 var recipeTitle = $("<h5>").text(response.hits[j].recipe.label);
                 var recipeImage = $("<img>").attr("src", response.hits[j].recipe.image);
                 var recipeURL = $("<a>").attr("href", response.hits[j].recipe.url).append(recipeTitle);
-                console.log(recipeURL);
+                //console.log(recipeURL);
 
                 // recipe URL path - need to use for clickable link
                 //["0"].outerHTML
                 //["0"].href
-
-                var recDiv = $('<div class="col s12 m6 l3">').append(recipeTitle, recipeImage);
+                //recLink.append(recipeImage); 
+                var recDiv = $('<div class="col s12 m6 l3 recipe">').append(recipeTitle, recipeImage);
+                recDiv.attr('data-index', j)
+                //recDiv.wrap("<a href='" + response.hits[j].recipe.shareAs + "'></a>");
+                
                 $("#recipe-results").append(recDiv);
+                
 
             }
         })
     }
 
+    function loadGroceryList(e) {
+        var recIndex = $(this).attr('data-index');
+        localStorage.setItem('currRecipe', JSON.stringify( recipes[recIndex].recipe ) )
+        window.location.replace('indexpage2.html');
+    }
+
     $('#submit').on('click', runSearch);
-    console.log(runSearch)
+    $(document).on('click', '.recipe', loadGroceryList )
+    $(document).on('hover', '.recipe', function(){
+        $(this).css('cursor', 'pointer');
+    })
+    //console.log(runSearch)
 </script>
 </body>
 

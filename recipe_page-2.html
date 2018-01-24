@@ -23,7 +23,7 @@
 <nav class="white" role="navigation">
     <ul class="right hide-on-med-and-down">
     </ul>
-    <div id="index-banner" class="parallax-container">
+    <div id="index-banner">
         <nav class="white" role="navigation">
             <div class="nav-wrapper container">
                 <a href="#" class="brand-logo">Electric Farmers</a>
@@ -99,6 +99,11 @@
     <script src="assets/js/init.js"></script>
 
 <script>
+    // var recDiv = $('<div class="col s12 m6 l3">')
+    //  var innerDiv =  $('<div class="test">').append('recipeTitle', 'recipeImage');
+    //  recDiv.append(innerDiv);
+    // $("#recipe-results").append(recDiv);
+
     function runSearch(e) {
         e.preventDefault()
         var food = $('#search').val();
@@ -107,15 +112,12 @@
         var limit = "&from=0&to=6"
         var limit2 = 6
         var queryURL = "https://api.edamam.com/search?q=" + food + appId + appKey + limit;
-
         $.ajax({
             url: queryURL,
             method: 'GET'
         }).done(function(response) {
             console.log(response);
-
             for (var j = 0; j < limit2; j++) {
-
                 var recipeTitle = $("<h5>").text(response.hits[j].recipe.label);
                 var recipeImage = $("<img>").attr("src", response.hits[j].recipe.image);
                 var recipeURL = $("<a>").attr("href", response.hits[j].recipe.url).append(recipeTitle);
@@ -124,14 +126,13 @@
         // recipe URL path - need to use for clickable link
             //["0"].outerHTML
             //["0"].href
-
+                $("#recipe-results").append(recDiv);            
                 var recDiv = $('<div class="col s12 m6 l3">').append(recipeTitle, recipeImage);
-                $("#recipe-results").append(recDiv);
+
                 
             }
         })
     }
-
     $('#submit').on('click', runSearch);
     console.log(runSearch)
 

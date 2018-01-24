@@ -1,80 +1,126 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Geolocation</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 80%;
-        margin: 0;
-        padding: 0;
-      }
+<html lang ="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Electric Food Farmers Page 4 Map </title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />  
+</head>
+
+<body>
+  <!--NAV BAR START-->
+    <nav class="white" role="navigation">
+        <ul class="right hide-on-med-and-down">
+        </ul>
+        <div id="index-banner" class="parallax-container">
+            <nav class="white" role="navigation">
+                <div class="nav-wrapper container">
+                    <a href="#" class="brand-logo">Electric Farmers</a>
+                    <ul class="right">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Grocery List</a></li>
+                        <li><a href="#">Meal Category</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                    </ul>
+                    </li>
+                </div>
+            </nav>
+        </div>
+    </nav>
+  <!---NAV BAR END-->
+
+  <!--FORM FOR SEARCH BAR SECTION-->
+    <body onload="initMap()">
+        <div>
+            <div class="row">
+                <div class="col s12 m10">
+                    <div class="searchBox">
+                        <div class="card" id="searchCard">
+                        <!-- Grocery Stores in your area -->
+                            <label for="rsearchInput">Store Search</label>
+                            <input type="text" id="searchInput" size="15" value="grocery store"></input>
+                         <a class="waves-effect waves-light btn-large">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <select id="locationSelect" style="width: 10%; visibility: hidden"></select>
+        </div>
+  <!--CLOSE SEARCH BAR SECTION-->
+
+  <!-- MAPS PLACES SEARCH START -->
+  <div id="map"></div>
+
+  <!--FOOTER SECTION-->
+      <footer class="page-footer teal">
+          <div class="footer-copyright">
+              Copyright &copy; 2018 Electric Farmers | All rights
+              <a class="brown-text text-lighten-3" href=></a>
+          </div>
+      </footer>
+      <!-- </a>
+      </div>
+      </div>
+      </div> -->
+  <!--END FOOTER SECTION-->
+
     </style>
   </head>
   <body>
+    <div id="floating-panel">
+    <b>Start: </b>
+    <div id="start">
+    <b>End: </b>
+    <select id="end">
+    </select>
+    </div>
+    
     <div id="map"></div>
 
+
+
     <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map; 
-      var infoWindow;
-      var origin;
-      var destination;
 
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        var map;
+        var haight = new google.maps.LatLng(37.7699298, -122.4469157);
+        var oceanBeach = new google.maps.LatLng(37.7683909618184, -122.51089453697205);
 
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 12
-        });
-
-        infoWindow = new google.maps.InfoWindow;
-        // destination = new google.maps.Place;
-
-        // GETS USERS GEOLOCATION
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            console.log(pos);
-            console.log(infoWindow);
-            
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Origin found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          },function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
+        function initialize() {
+          directionsDisplay = new google.maps.DirectionsRenderer();
+          var mapOptions = {
+            zoom: 14,
+            center: haight
+          }
+          map = new google.maps.Map(document.getElementById('map'), mapOptions);
+          directionsDisplay.setMap(map);
         }
-      }
+
+        function calcRoute() {
+          var selectedMode = document.getElementById('mode').value;
+          var request = {
+              origin: haight,
+              destination: oceanBeach,
+              // Note that Javascript allows us to access the constant
+              // using square brackets and a string value as its
+              // "property."
+              travelMode: google.maps.TravelMode[selectedMode]
+          };
+          directionsService.route(request, function(response, status) {
+            if (status == 'OK') {
+              directionsDisplay.setDirections(response);
+            }
+          });
+        }
 
 
-      // Browser doesn't support Geolocation Function
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-
-///////////  GOOGLE MAPS DIRECTIONS API ///////////////
       // function initMap() {
       //   var directionsService = new google.maps.DirectionsService;
       //   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -93,8 +139,8 @@
 
       // function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       //   directionsService.route({
-      //     origin: document.getElementById('start').value,
-      //     destination: document.getElementById('end').value,
+      //     origin: pos,
+      //     destination: google.maps.Place,
       //     travelMode: 'DRIVING'
       //   }, function(response, status) {
       //     if (status === 'OK') {
@@ -104,9 +150,11 @@
       //     }
       //   });
       // }
-            
-
     </script>
+
+
+
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqbmFkjcZqKGhM9mzvzuycp_CgAr2vGbs&callback=initMap">
     </script>

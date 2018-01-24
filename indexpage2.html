@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,28 +11,6 @@
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
-<!DOCTYPE html>
-<html lang="en">
-
-
-<style>
-    div.row {
-        margin-top: 2%;
-        margin-left: 15%;
-    }
-    
-    div.section {
-        padding: 0;
-    }
-    
-    div.footer-copyright {
-        margin-left: 75%;
-    }
-    
-    a.waves-effect.waves-light.btn-large {
-        margin-left: 2%;
-    }
-</style>
 
 <body>
     <!--NAV BAR START FIX!!!!!-->
@@ -67,10 +42,6 @@
             </nav>
         </div>
     </nav>
-
-
-
-
     <!---NAV BAR END-->
 
     <!--FORM FOR SEARCH BAR SECTION-->
@@ -90,8 +61,6 @@
         </div>
     </div>
     <!--CLOSE SEARCH BAR SECTION-->
-
-
 
     <!--START EMPTY CARDS TO HOLD API SEARCH RESULTS-->
     <!--WILL HAVE TO USE JQUERY TO APPEND THE RESULTS TO PAGE THIS WILL ACT LIKE A VISUAL PLACEHOLDER UNTIL THAT STEP-->
@@ -120,9 +89,9 @@
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
                         <span class="card-title">RECIPE INSTRUCTIONS</span>
-                        <h5>H5 RECIPE TITLE IN JQUERY</h5>
-                        <p>USE P TAG FOR JQUERY</p>
-                        <li>LI LIST RECIPE INSTRUCTIONS</li>
+                        <h5 id="recipeTitle">H5 RECIPE TITLE IN JQUERY</h5>
+                        <p >USE P TAG FOR JQUERY</p>
+                        <li id="gList">LI LIST RECIPE INSTRUCTIONS</li>
                     </div>
                     <div class="card-action">
                     </div>
@@ -145,13 +114,46 @@
     <!--END FOOTER SECTION-->
 
 
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="assets/js/materialize.js"></script>
-    <script src="assets/js/init.js"></script>
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="assets/js/materialize.js"></script>
+<script src="assets/js/init.js"></script>
 
     <script>
+            function runSearch(e) {
+        e.preventDefault()
+        var food = $('#search').val();
+        var appId = "&app_id=c352aed6";
+        var appKey = "&app_key=ac5ca67ecd16815f2532e5b62a701164";
+        var limit = "&from=0&to=6"
+        var limit2 = 6
+        var queryURL = "https://api.edamam.com/search?q=" + food + appId + appKey + limit;
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).done(function(response) {
+            console.log(response);
+            for (var j = 0; j < limit2; j++) {
+                var recipeTitle = $("<h5>").text(response.hits[j].recipe.label);
+                var recipeImage = $("<img>").attr("src", response.hits[j].recipe.image);
+                var recipeURL = $("<a>").attr("href", response.hits[j].recipe.url).append(recipeTitle);
+                    console.log(recipeURL);
+
+        // recipe URL path - need to use for clickable link
+            //["0"].outerHTML
+            //["0"].href
+                $("#recipe-results").append(recDiv);            
+                var recDiv = $('<div class="col s12 m6 l3">').append(recipeTitle, recipeImage);
+
+                
+            }
+        })
+    }
+    $('#submit').on('click', runSearch);
+    console.log(runSearch)
+
+
+
     </script>
 </body>
-
 </html>

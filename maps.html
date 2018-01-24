@@ -12,7 +12,6 @@
 </head>
 
 <body>
-  <!--NAV BAR START-->
     <nav class="white" role="navigation">
         <ul class="right hide-on-med-and-down">
         </ul>
@@ -21,17 +20,27 @@
                 <div class="nav-wrapper container">
                     <a href="#" class="brand-logo">Electric Farmers</a>
                     <ul class="right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Grocery List</a></li>
-                        <li><a href="#">Meal Category</a></li>
-                        <li><a href="#">Store Locator</a></li>
+                        <div id="button"></div>
+                        <li><a href="indexlandingpage.html">Home</a>
+    
+                            <div id="button"></div>
+                            <li> <a href="indexpage2.html">Grocery List</a>
+    
+                                <div id="button"></div>
+                                <li><a href="indexpage3.html ">Meal Category</a>
+    
+                                    <div id="button"></div>
+                                    <li><a href="indexpage4.html">Store Locator</a>
+                                    </li>
+                                </li>
+                            </li>
+                        </li>
                     </ul>
-                    </li>
                 </div>
             </nav>
         </div>
     </nav>
-  <!---NAV BAR END-->
+    
 
   <!--FORM FOR SEARCH BAR SECTION-->
     <body onload="initMap()">
@@ -42,7 +51,7 @@
                         <div class="card" id="searchCard">
                         <!-- Grocery Stores in your area -->
                             <label for="rsearchInput">Store Search</label>
-                            <input type="text" id="searchInput" size="15" />
+                            <input type="text" id="searchInput" size="15" value="grocery store"></input>
                          <a class="waves-effect waves-light btn-large">Submit</a>
                         </div>
                     </div>
@@ -73,7 +82,12 @@
     <script>
       var center;
       var pos;
-      var input;
+      var input = "Grocery Store";
+      var origin;
+      var destination;
+
+      var directionsService;
+      var directionsDisplay;
       
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a pick list containing a mix of places and predicted search terms.
@@ -83,11 +97,10 @@
         var input = document.getElementById('searchInput');
         console.log(input);
 
+
+        directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
-          // Savannah, Georgia - Default
-            // center: {lat: 32.076176, lng: -81.088371},
-          // Syndey, Australia to test for GeoLocation
-            // center: {lat: -34.397, lng: 150.644},
           zoom: 14,
           mapTypeId: 'roadmap'
         });
@@ -96,17 +109,21 @@
         // GETS USERS GEOLOCATION
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-              var pos = center = {
+               pos = center = {
                   lat: position.coords.latitude,
                   lng: position.coords.longitude
                 };
                   console.log(pos);
                   console.log(infoWindow);
+                  console.log(directionsService);
+                  console.log(directionsDisplay);
+                  
               infoWindow.setPosition(pos);
               infoWindow.setContent('Location found.');
               infoWindow.open(map);
               map.setCenter(pos);
           },
+
           function() {
               handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -146,6 +163,7 @@
               console.log("Returned place contains no geometry");
               return;
             }
+
             var icon = {
               url: place.icon,
               size: new google.maps.Size(71, 71),
@@ -182,6 +200,38 @@
         infoWindow.open(map);
       }
       
+
+        directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
+        map = new google.maps.Map(document.getElementById('map'), {
+        });
+
+
+        directionsDisplay.setMap(map);
+
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+
+
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+          directionsService.route({
+            origin: pos,
+            destination: google.maps.Place,
+            travelMode: 'DRIVING'
+          }, function(response, status) {
+            if (status === 'OK') {
+              directionsDisplay.setDirections(response);
+            } else {
+              window.alert('Directions request failed due to ' + status);
+            }
+          });
+        }
+
+
+
+
+
   //   var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
   //   var marker = new google.maps.Marker({
   //   position: myLatLng,

@@ -5,6 +5,8 @@
 
 
 Overview
+
+
 Our project is Electric Food Farmers.  As a team we will be creating a dynamic, modern website that assists our busy client in planning their meals and shopping for ingredients at local markets. The project will allow users to search for healthy and delicious recipes, store an ingredient list and find local stores that carry the products on the list. 
 
 
@@ -16,6 +18,8 @@ Nathan Young
 
 
 Goals
+
+
 Identify recipes and ingredients needed to prepare meals
 Identifies local stores that carry the needed ingredients for meal prep
 Specifications Design/Code Requirements
@@ -33,6 +37,8 @@ Must have User Input Validation
 
 
 Tools/Resources
+
+
 Edamam
 https://developer.edamam.com/
 Recipe search API key: 80593788b6da05ad23ac32eea33a85ce
@@ -49,4 +55,6 @@ API Key: AIzaSyDDaq099UzXGx4eHUjGHzqHnfUNABlZx8g
 
 
 Workflow
+
+
 The team will use Zen Hub to manage the Website Design process and track delegate responsibility. 

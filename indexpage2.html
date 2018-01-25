@@ -84,20 +84,23 @@
     <script src="assets/js/init.js"></script>
 
     <script>
-        var recipe = JSON.parse(localStorage.getItem('currRecipe'));
-        console.log(recipe);
-        $('#recTitle').text(recipe.label)
-        var ul = $('<ul>');
-        for (var i = 0; i < recipe.ingredientLines.length; i++) {
-            var li = $('<li>').text(recipe.ingredientLines[i]);
-            ul.append(li);
-        }
-        $('#groceryList').append(ul);
 
-        var a = $('<a>').attr('href', recipe.url);
-        var img = $('<img>').attr('src', recipe.image);
-        a.append(img);
-        $('#recipeDirections').append(a);
+         var recipe = JSON.parse( localStorage.getItem('currRecipe') );
+         console.log(recipe);
+         $('#recTitle').text(recipe.label)
+         var ul = $('<ul>');
+         for(var i = 0; i < recipe.ingredientLines.length; i++ ){
+             var li = $('<li>').text( recipe.ingredientLines[i] );
+             ul.append(li);
+         }
+         $('#groceryList').append(ul);
+
+         var a = $('<a>').attr('href', recipe.url );
+         var img = $('<img>').attr('src', recipe.image );
+         a.append(img);
+         $('.card-content').append(a);
+          
+
     </script>
 </body>
 

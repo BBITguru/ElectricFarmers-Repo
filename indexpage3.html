@@ -158,29 +158,39 @@
                     url: queryURL,
                     method: 'GET'
                 }).done(function(response) {
-                    //console.log(response);
-
+                    console.log(response);
+                    recipes = response.hits;
                     for (var j = 0; j < limit2; j++) {
-                        var div = $('<div>').addClass('col s12 m2');
-                        var mealType = $("<h3>").text(response.hits[j].recipe.label);
-                        var mealURL = $("<a>").attr("href", response.hits[j].recipe.shareAs);
-                        var mealImage = $('<img id="food">').attr("src", response.hits[j].recipe.image);
-
-                        div.prepend(mealType, mealURL, mealImage);
-                        $("#recipe-results").append(div);
-                        // var recDiv = $('<div class="col s12 m6 l3">').append(mealType, mealURL, mealImage);
-                        // $("#recipe-results").append(recDiv);
+                        //var recLink = $('<a>').attr('href', response.hits[j].recipe.shareAs)
+                        var recipeTitle = $("<h5>").text(response.hits[j].recipe.label);
+                        var recipeImage = $("<img>").attr("src", response.hits[j].recipe.image);
+                        var recipeURL = $("<a>").attr("href", response.hits[j].recipe.url).append(recipeTitle);
+                        //console.log(recipeURL);
+        
+                        // recipe URL path - need to use for clickable link
+                        //["0"].outerHTML
+                        //["0"].href
+                        //recLink.append(recipeImage); 
+                        var recDiv = $('<div class="col s12 m6 l3 recipe">').append(recipeTitle, recipeImage);
+                        recDiv.attr('data-index', j)
+                        //recDiv.wrap("<a href='" + response.hits[j].recipe.shareAs + "'></a>");
+                        
+                        $("#recipe-results").append(recDiv);
+                        
+        
                     }
-
                 })
             }
         }
 
-        function getRecipe(food) {
-
+        function loadGroceryList(e) {
+            var recIndex = $(this).attr('data-index');
+            localStorage.setItem('currRecipe', JSON.stringify( recipes[recIndex].recipe ) )
+            window.location.replace('indexpage2.html');
         }
 
-        $('#submit').on('click', runSearch)
+        $('#submit').on('click', runSearch);
+        $(document).on('click', '.recipe', loadGroceryList );
         $('.category').on('click', function(e) {
             var val = $(this).text();
 

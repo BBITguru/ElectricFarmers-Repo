@@ -17,6 +17,10 @@
         #index-banner {
             color: black;
         }
+        img {
+            height: 200px;
+            width: 200px;
+        }
     </style>
 </body>
 <!--NAV BAR START-->
@@ -111,6 +115,7 @@
 
     function runSearch(e) {
         e.preventDefault()
+        $("#recipe-results").empty()
         var food = $('#search').val();
         var appId = "&app_id=c352aed6";
         var appKey = "&app_key=ac5ca67ecd16815f2532e5b62a701164";
@@ -153,10 +158,9 @@
     }
 
     $('#submit').on('click', runSearch);
-    $(document).on('click', '.recipe', loadGroceryList )
-    $(document).on('hover', '.recipe', function(){
-        $(this).css('cursor', 'pointer');
-    })
+    $(document).on('click', '.recipe', loadGroceryList );
+
+
     //console.log(runSearch)
 </script>
 </body>

@@ -174,3 +174,7 @@ footer.page-footer {
 /* #recSearch {
   max-width: 300px;
 } */
+
+.recipe:hover {
+  cursor: pointer!important;
+}

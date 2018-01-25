@@ -1,3 +1,4 @@
+<!--LANDING PAGE-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,56 +10,69 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/css/mstyle.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-</head>
-<style>
-    div.footer-copyright {
-        margin-left: 75%;
-    }
-    
-    h1.header {
-        background-color: rgb(17, 17, 17);
-        padding: 10px;
-        opacity: 0.5;
-        filter: alpha(opacity=5);
-    }
-</style>
 
-<!--LANDING PAGE-->
+</head>
 
 <body>
-    <nav class="white" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo"></a>
+    <!--NAV BAR START-->
+    <nav>
+        <div class="nav-wrapper teal">
+            <a href="#!" class="brand-logo"></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="indexlandingpage.html"></a>
+                </li>
+                <li>
+                    <a href="indexpage1.html"></a>
+                </li>
+                <li>
+                    <a href="indexpage2.html"></a>
+                </li>
+                <li>
+                    <a href="indexpage3.html"></a>
+                </li>
+                <li>
+                    <a href="indexpage4.html"></a>
+                </li>
             </ul>
-
-
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="#">Navbar Link</a></li>
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    <a href="indexlandingpage.html"></a>
+                </li>
+                <li><a href="indexpage1.html">Food Search</a></li>
+                <li>
+                    <a href="indexpage2.html"></a>
+                </li>
+                <li><a href="indexpage3.html">Meal Categories</a></li>
+                <li><a href="indexpage4.html">Maps</a></li>
             </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons"></i></a>
         </div>
     </nav>
+    <!--NAV BAR END-->
 
+
+    <!--MIDDLE SECTION - IMAGE AND TEXT-->
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container">
                 <br><br>
-                <h1 class="header center teal-text text-lighten-2">Electric Farmer's Food Finder</h1>
-
+                <h1 class="header center white-text text-lighten-2">Electric Farmer's Food Finder</h1>
                 <div class="row center">
-                    <h5 class="header col s12 light"></h5>
+                    <h5 id="iconText" class="header col s12 light"></h5>
                 </div>
                 <div class="row center">
-                    <!--PUT LOGO HERE-<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>-->
                 </div>
-                <br><br>
-
+                <br>
             </div>
         </div>
         <div class="parallax"><img src="assets/images/background1.jpg" alt="Unsplashed background img 1"></div>
     </div>
+    <!--END MIDDLE SECTION-->
+
+
 
 
 
@@ -128,10 +142,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="parallax"><img src="assets/images/background1.jpg" alt="background img 1"></div>
+                    <div class="parallax"><img id="background"><img src="assets/images/background1.jpg" alt="background img 1"></div>
                 </div>
                 <hr>
-                <br>
+
                 <div class="container">
                     <div class="section">
                         <div class="row">
@@ -145,10 +159,12 @@
                         </div>
                     </div>
                 </div>
-                <!--END ABOUT US SECTION-->
             </div>
         </div>
     </div>
+
+    <!--END ABOUT US SECTION-->
+
 
 
     <!--END CONTAINER-->
@@ -167,6 +183,7 @@
     <script>
         $(document).ready(function() {
             console.log("ready");
+            $(".button-collapse").sideNav();
 
             // LANDING PAGE -  ON CLICK EVENT FOR FOOD SEARCH ICON 
             $(".search").on("click", function(ev) {

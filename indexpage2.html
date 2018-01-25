@@ -9,84 +9,62 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/css/mstyle.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
-    <!--NAV BAR START FIX!!!!!-->
-    <nav class="white" role="navigation">
-        <ul class="right hide-on-med-and-down">
-        </ul>
-        <div id="index-banner" class="parallax-container">
-            <nav class="white" role="navigation">
-                <div class="nav-wrapper container">
-                    <a href="#" class="brand-logo">Electric Farmers</a>
-                    <ul class="right">
-                        <div id="button"></div>
-                        <li><a href="indexlandingpage.html">Home</a>
-
-                            <div id="button"></div>
-                            <li> <a href="indexpage2.html">Grocery List</a>
-
-                                <div id="button"></div>
-                                <li><a href="indexpage3.html ">Meal Category</a>
-
-                                    <div id="button"></div>
-                                    <li><a href="indexpage4.html">Store Locator</a>
-                                    </li>
-                                </li>
-                            </li>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+    <!--NAV BAR START-->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Electric Farmer's Food Finder</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="indexlandingpage.html">Home</a>
+                </li>
+                <li><a href="indexpage1.html">Food Search</a></li>
+                <li>
+                    <a href="indexpage2.html"></a>
+                </li>
+                <li><a href="indexpage3.html">Meal Categories</a></li>
+                <li><a href="indexpage4.html">Maps</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    <a href="indexlandingpage.html">Home</a>
+                </li>
+                <li><a href="indexpage1.html">Food Search</a></li>
+                <li>
+                    <a href="indexpage2.html"></a>
+                </li>
+                <li><a href="indexpage3.html">Meal Categories</a></li>
+                <li><a href="indexpage4.html">Maps</a></li>
+            </ul>
         </div>
     </nav>
     <!---NAV BAR END-->
 
-    <!--FORM FOR SEARCH BAR SECTION-->
-    <!-- <div class="row">
-        <div class="col s12 m10">
-            <div class="searchBox">
-                <div class="card" id="recSearch">
-                    <div id="index-banner">
-                        <form action="/action_page.php">
-                            <input type="text" id="search" name="searchHere" placeholder="Search">
-                            <a class="waves-effect waves-light btn"><input id="submit" type="submit"></a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--CLOSE SEARCH BAR SECTION-->
-
-    <!--START EMPTY CARDS TO HOLD API SEARCH RESULTS-->
-    <!--WILL HAVE TO USE JQUERY TO APPEND THE RESULTS TO PAGE THIS WILL ACT LIKE A VISUAL PLACEHOLDER UNTIL THAT STEP-->
-    <!--COULD ADD A COLLAPSIBLE STRUCTURE TO EACH CARD-JS-->
-    <!--FIRST ROW OF EMPTY CARDS-->
-
+    <!--DISPLAY CARD-->
     <div class="section">
         <div class="row">
-            <div class="col s12 m10">
+            <div class="col s6 m4">
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
                         <span class="card-title">GROCERY LIST</span>
                         <h5 id='recTitle'>H5 RECIPE TITLE IN JQUERY</h5>
+
                         <div id='groceryList'></div>
-                    </div>
-                    <div class="card-action">
+                        <div class="card-action">
+                            <div class="col s6 m4" id='recipeDirections'></div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-            <div class="col s12 m5" id='recipeDirections'>
-                
-            </div>
-
         </div>
     </div>
+
+
     <!--END DISPLAY CARD-->
 
 
@@ -100,27 +78,27 @@
     <!--END FOOTER SECTION-->
 
 
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="assets/js/materialize.js"></script>
-<script src="assets/js/init.js"></script>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/materialize.js"></script>
+    <script src="assets/js/init.js"></script>
 
     <script>
-         var recipe = JSON.parse( localStorage.getItem('currRecipe') );
-         console.log(recipe);
-         $('#recTitle').text(recipe.label)
-         var ul = $('<ul>');
-         for(var i = 0; i < recipe.ingredientLines.length; i++ ){
-             var li = $('<li>').text( recipe.ingredientLines[i] );
-             ul.append(li);
-         }
-         $('#groceryList').append(ul);
+        var recipe = JSON.parse(localStorage.getItem('currRecipe'));
+        console.log(recipe);
+        $('#recTitle').text(recipe.label)
+        var ul = $('<ul>');
+        for (var i = 0; i < recipe.ingredientLines.length; i++) {
+            var li = $('<li>').text(recipe.ingredientLines[i]);
+            ul.append(li);
+        }
+        $('#groceryList').append(ul);
 
-         var a = $('<a>').attr('href', recipe.url );
-         var img = $('<img>').attr('src', recipe.image );
-         a.append(img);
-         $('#recipeDirections').append(a);
-          
+        var a = $('<a>').attr('href', recipe.url);
+        var img = $('<img>').attr('src', recipe.image);
+        a.append(img);
+        $('#recipeDirections').append(a);
     </script>
 </body>
+
 </html>

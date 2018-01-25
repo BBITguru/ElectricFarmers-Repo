@@ -9,223 +9,195 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/css/mstyle.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
-<style>
-    div.row {
-        margin-top: 2%;
-        margin-left: 15%;
-    }
-    
-    div.section {
-        padding: 0;
-    }
-    
-    a.waves-effect.waves-light.btn-large {
-        margin-left: 2%;
-    }
-    
-    div.footer-copyright {
-        margin-left: 75%;
-    }
-    
-    div.col.s12.m2 {
-        width: 20%;
-        height: 20%;
-    }
-    
-    div.card-action {
-        width: 20%;
-        height: 20%;
-    }
-    
-    img {
-        width: 80%;
-        height: 80%;
-        margin: 25px;
-    }
-    
-    h5 {
-        font-size: 20px;
-    }
-</style>
 
-<body></body>
-<!--NAV BAR START-->
-<nav class="white" role="navigation">
-    <ul class="right hide-on-med-and-down">
-    </ul>
-    <div id="index-banner" class="parallax-container">
-        <nav class="white" role="navigation">
-            <div class="nav-wrapper container">
-                <a href="#" class="brand-logo">Electric Farmers</a>
-                <ul class="right">
-                    <div id="button"></div>
-                    <li><a href="indexlandingpage.html">Home</a>
-
-                        <div id="button"></div>
-                        <li> <a href="indexpage2.html">Grocery List</a>
-
-                            <div id="button"></div>
-                            <li><a href="indexpage3.html ">Meal Category</a>
-
-                                <div id="button"></div>
-                                <li><a href="indexpage4.html">Store Locator</a>
-                                </li>
-                            </li>
-                        </li>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</nav>
-<!---NAV BAR END-->
-
-<!--FORM FOR SEARCH BAR SECTION-->
-<div class="row">
-    <div class="col s12 m10">
-        <div class="searchBox">
-            <div class="card" id="recSearch">
-                <div id="index-banner">
-                    <form>
-                        <div class="input-field">
-                            <div class="teal-text text-darken-2">
-                                <input id="search" type="search" required>
-                                <label for="search"><i class="material-icons">search</i></label>
-                                <i class="material-icons">close</i>
-                                <!-- <input id="submit" type="submit"> -->
-                            </div>
-                    </form>
-                    <div class="teal-text text-darken-2">
-
-                        <form action="/action_page.php">
-                    </div>
-
-                    </form>
-                    <!-- Dropdown Trigger -->
-                    <a class='waves-effect waves-light dropdown-button btn' href='#' data-activates='dropdown1'>Dropdown Search</a>
-                    <a class="waves-effect waves-light btn"><input id="submit" type="submit"></a>
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li class="category"><a href="#!">Breakfast</a></li>
-                        <li class="category"><a href="#!">Lunch</a></li>
-                        <li class="category"><a href="#!">Dinner</a></li>
-                        <li class="category"><a href="#!">Snack</a></li>
-
-                        <li class="divider"></li>
-                        <li class="category"><a href="#!">American</a></li>
-                        <li class="category"><a href="#!">Indian</a></li>
-                        <li class="category"><a href="#!">Italian</a></li>
-                        <li class="category"><a href="#!">Asian</a></li>
-                        <li class="category"><a href="#!">French</a></li>
-                        <li class="category"><a href="#!">Caribbean</a></li>
-                        <li class="category"><a href="#!">Greek</a></li>
-                        <li class="category"><a href="#!">British</a></li>
-                        <li class="category"><a href="#!">Mexican</a></li>
-                        <li class="category"><a href="#!">Thai</a></li>
-                        <li class="category"><a href="#!">Middle Eastern</a></li>
-                        <li class="category"><a href="#!">Nordic</a></li>
-                        <li class="category"><a href="#!">Irish</a></li>
-                        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-                    </ul>
-                    </div>
-                </div>
-            </div>
+<body>
+    <!--NAV BAR START-->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Electric Farmer's Food Finder</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="indexlandingpage.html">Home</a>
+                </li>
+                <li><a href="indexpage1.html">Food Search</a></li>
+                <li>
+                    <a href="indexpage2.html"></a>
+                </li>
+                <li><a href="indexpage3.html">Meal Categories</a></li>
+                <li><a href="indexpage4.html">Maps</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    <a href="indexlandingpage.html">Home</a>
+                </li>
+                <li><a href="indexpage1.html">Food Search</a></li>
+                <li>
+                    <a href="indexpage2.html"></a>
+                </li>
+                <li><a href="indexpage3.html">Meal Categories</a></li>
+                <li><a href="indexpage4.html">Maps</a></li>
+            </ul>
         </div>
-    </div>
-</div>
-</nav>
+    </nav>
+    <!---NAV BAR END-->
 
-<!--CLOSE SEARCH BAR SECTION-->
-
-
-
-<!-- START EMPTY CARDS TO HOLD API SEARCH RESULTS-->
-<div class="section">
+    <!--FORM FOR SEARCH BAR SECTION-->
     <div class="row">
-        <div class="col s12 m2"></div>
-        <div class="card-action">
-            <div class="container">
-                <div class="section">
-                    <div class="row">
-                        <div id="recipe-results">
+        <div class="col s12 m10">
+            <div class="searchBox">
+                <div class="card" id="recSearch">
+                    <div id="index-banner">
+                        <form>
+                            <div class="input-field">
+                                <div class="teal-text text-darken-2">
+                                    <input id="search" type="search" required>
+                                    <label for="search"><i class="material-icons">search</i></label>
+                                    <i class="material-icons">close</i>
+                                    <!-- <input id="submit" type="submit"> -->
+                                </div>
+                        </form>
+                        <div class="teal-text text-darken-2">
+
+                            <form action="/action_page.php">
+                        </div>
+
+                        </form>
+                        <!-- Dropdown Trigger -->
+                        <a class='waves-effect waves-light dropdown-button btn' href='#' data-activates='dropdown1'>Dropdown Search</a>
+                        <a class="waves-effect waves-light btn"><input id="submit" type="submit"></a>
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li class="category"><a href="#!">Breakfast</a></li>
+                            <li class="category"><a href="#!">Lunch</a></li>
+                            <li class="category"><a href="#!">Dinner</a></li>
+                            <li class="category"><a href="#!">Snack</a></li>
+
+                            <li class="divider"></li>
+                            <li class="category"><a href="#!">American</a></li>
+                            <li class="category"><a href="#!">Indian</a></li>
+                            <li class="category"><a href="#!">Italian</a></li>
+                            <li class="category"><a href="#!">Asian</a></li>
+                            <li class="category"><a href="#!">French</a></li>
+                            <li class="category"><a href="#!">Caribbean</a></li>
+                            <li class="category"><a href="#!">Greek</a></li>
+                            <li class="category"><a href="#!">British</a></li>
+                            <li class="category"><a href="#!">Mexican</a></li>
+                            <li class="category"><a href="#!">Thai</a></li>
+                            <li class="category"><a href="#!">Middle Eastern</a></li>
+                            <li class="category"><a href="#!">Nordic</a></li>
+                            <li class="category"><a href="#!">Irish</a></li>
+                            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                        </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
+    </nav>
 
-<!--END DISPLAY CARDS-->
+    <!--CLOSE SEARCH BAR SECTION-->
 
-<!--FOOTER SECTION-->
-<footer class="page-footer teal ">
-    <div class="footer-copyright ">
-        Copyright &copy; 2018 Electric Farmers | All rights
-        <a class="brown-text text-lighten-3 " href=></a>
+
+    <!-- START EMPTY CARDS TO HOLD API SEARCH RESULTS-->
+    <div class="container">
+        <div class="section">
+            <div class="row" id="recipe-results">
+                <!-- <div class="col s12 m2">
+                <div class="card-action"> -->
+                <!-- <div id="recipe-results">
+                    </div> -->
+                <!-- </div>
+            </div> -->
+            </div>
+        </div>
     </div>
-</footer>
-<!--END FOOTER SECTION-->
 
 
-<!-- SCRIPTS-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
-<script src="assets/js/materialize.js "></script>
-<script src="assets/js/init.js "></script>
 
-<script>
-    function runSearch(e, dropdownValue) {
-        e.preventDefault()
-        var food;
-        if (dropdownValue) {
-            food = dropdownValue
-        } else {
-            food = $('#search').val().trim();
+    <!--END DISPLAY CARDS-->
+
+    <!--FOOTER SECTION-->
+    <footer class="page-footer teal ">
+        <div class="footer-copyright ">
+            Copyright &copy; 2018 Electric Farmers | All rights
+            <a class="brown-text text-lighten-3 " href=></a>
+        </div>
+    </footer>
+    <!--END FOOTER SECTION-->
+
+
+    <!-- SCRIPTS-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+    <script src="assets/js/materialize.js "></script>
+    <script src="assets/js/init.js "></script>
+
+    <script>
+        function runSearch(e, dropdownValue) {
+            e.preventDefault()
+            var food;
+            if (dropdownValue) {
+                food = dropdownValue
+            } else {
+                food = $('#search').val().trim();
+            }
+            //By using code if - we are validating that food has value and search is taking place and to run the code below. 
+            if (food !== '') {
+                $('#recipe-results').empty();
+                var appId = "&app_id=c352aed6";
+                var appKey = "&app_key=5977603e9303bff4c7fac690383aa259";
+                var limit = "&from=0&to=6"
+                var limit2 = 5
+                var queryURL = "https://api.edamam.com/search?q=" + food + appId + appKey + limit;
+                $.ajax({
+                    url: queryURL,
+                    method: 'GET'
+                }).done(function(response) {
+                    //console.log(response);
+
+                    for (var j = 0; j < limit2; j++) {
+                        var div = $('<div>').addClass('col s12 m2');
+                        var mealType = $("<h3>").text(response.hits[j].recipe.label);
+                        var mealURL = $("<a>").attr("href", response.hits[j].recipe.shareAs);
+                        var mealImage = $('<img id="food">').attr("src", response.hits[j].recipe.image);
+
+                        div.prepend(mealType, mealURL, mealImage);
+                        $("#recipe-results").append(div);
+                        // var recDiv = $('<div class="col s12 m6 l3">').append(mealType, mealURL, mealImage);
+                        // $("#recipe-results").append(recDiv);
+                    }
+
+                })
+            }
         }
-        //By using code if - we are validating that food has value and search is taking place and to run the code below. 
-        if (food !== '') {
-            $('.card-action').empty();
-            var appId = "&app_id=c352aed6";
-            var appKey = "&app_key=5977603e9303bff4c7fac690383aa259";
-            var limit = "&from=0&to=6"
-            var limit2 = 5
-            var queryURL = "https://api.edamam.com/search?q=" + food + appId + appKey + limit;
-            $.ajax({
-                url: queryURL,
-                method: 'GET'
-            }).done(function(response) {
-                //console.log(response);
 
-                for (var j = 0; j < limit2; j++) {
-                    var mealType = $("<h5>").text(response.hits[j].recipe.label);
-                    var mealURL = $("<a>").attr("href", response.hits[j].recipe.shareAs);
-                    var mealImage = $("<img>").attr("src", response.hits[j].recipe.image);
+        function getRecipe(food) {
 
-                    $(".col.s12.m2 ").prepend(mealType, mealURL, mealImage);
-                    // var recDiv = $('<div class="col s12 m6 l3">').append(mealType, mealURL, mealImage);
-                    // $("#recipe-results").append(recDiv);
-                }
-
-            })
         }
-    }
 
-    function getRecipe(food) {
+        $('#submit').on('click', runSearch)
+        $('.category').on('click', function(e) {
+            var val = $(this).text();
 
-    }
+            console.log(val);
+            runSearch(e, val);
 
-    $('#submit').on('click', runSearch)
-    $('.category').on('click', function(e) {
-        var val = $(this).text();
+            //click on image to go to recipe URL
+            var recipe = JSON.parse(localStorage.getItem('currRecipe'));
+            console.log(recipe);
+            $('#recTitle').text(recipe.label)
 
-        console.log(val);
-        runSearch(e, val);
-    });
-</script>
+            var a = $('<a>').attr('href', recipe.url);
+            var img = $('<img id="food">').attr('src', recipe.image);
+            a.append(img);
+            $('#recipeDirections').append(a);
+        });
+    </script>
 
 </body>
 

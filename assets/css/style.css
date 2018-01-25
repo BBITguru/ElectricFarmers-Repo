@@ -1,26 +1,18 @@
-/* Custom Stylesheet */
-
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
+/* STYLE SHEET*/
 
 
-/* STYLE FROM MATERIALIZE - MANIPULATE*/
+/*STYLE FOR LANDING PAGE */
 
-nav ul a,
-nav .brand-logo {
-    color: #444;
+
+/*Navbar*/
+
+nav {
+    background-color: white;
 }
 
-p {
-    line-height: 2rem;
-}
-
-.button-collapse {
-    color: #26a69a;
+a.brand-logo {
+    margin-left: 2%;
+    color: gray;
 }
 
 .parallax-container {
@@ -30,77 +22,126 @@ p {
     color: rgba(255, 255, 255, .9);
 }
 
-.parallax-container .section {
-    width: 100%;
-}
 
-@media only screen and (max-width: 992px) {
-    .parallax-container .section {
-        position: absolute;
-        top: 40%;
-    }
-    #index-banner .section {
-        top: 10%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    #index-banner .section {
-        top: 0;
-    }
-}
+/* icons*/
 
 .icon-block {
     padding: 0 15px;
 }
 
-.icon-block .material-icons {
-    font-size: inherit;
+i#foodIcon.material-icons {
+    font-size: 100%;
 }
 
-footer.page-footer {
-    margin: 0;
+h1.header.center.teal-text.text-lighten-2 {
+    background-color: rgb(17, 17, 17);
+    padding: 10px;
+    opacity: 0.5;
+    filter: alpha(opacity=5);
 }
 
-#index-banner.parallax-container {}
-
-#footer-copyright {
-    text-align: center;
+#index-banner .section {
+    top: 10%;
 }
+
+
+/* image for background*/
+
+
+/* STYLE FOR INDEX 1*/
+
+.searchBox,
+#recSearch,
+#searchCard {
+    height: 100px;
+}
+
+#map {
+    height: 600px;
+}
+
+
+/* STYLE FOR INDEX 2*/
+
+
+/* no styling for index2*/
+
+
+/* STYLE FOR INDEX 3*/
+
+
+/* button 3*/
+
+a.waves-effect.waves-light.btn-large {
+    margin-left: 2%;
+}
+
+
+/* div and images 3*/
+
+h3 {
+    color: gray;
+    font-size: 20px;
+    width: 210px;
+    height: 50px;
+    padding: 2%;
+}
+
+h5 {}
+
+img#food {
+    height: 200px;
+    width: 200px;
+}
+
+div.col.s12.m2 {
+    padding: 5%;
+}
+
 
 /* <!--STYLEs from maps.html-->
-<style> */
-  /* Always set the map height explicitly to define the size of the div
+
+                    /* Always set the map height explicitly to define the size of the div
     * element that contains the map. */
-  #map {
+
+label {
+    font-size: 15px;
+}
+
+#map {
     max-width: 100%;
     height: 60%;
-  }
-  /* Optional: Makes the sample page fill the window. */
-  html, body {
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-  }
-  #description {
+}
+
+#description {
     font-family: Roboto;
     font-size: 15px;
     font-weight: 300;
-  }
+}
 
-  #infowindow-content .title {
+#infowindow-content .title {
     font-weight: bold;
-  }
+}
 
-  #infowindow-content {
+#infowindow-content {
     display: none;
-  }
+}
 
-  #map #infowindow-content {
+#map #infowindow-content {
     display: inline;
-  }
+}
 
-  .pac-card {
+.pac-card {
     margin: 10px 10px 0 0;
     border-radius: 2px 0 0 2px;
     box-sizing: border-box;
@@ -109,25 +150,25 @@ footer.page-footer {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     background-color: #fff;
     font-family: Roboto;
-  }
+}
 
-  #pac-container {
+#pac-container {
     padding-bottom: 12px;
     margin-right: 12px;
-  }
+}
 
-  .pac-controls {
+.pac-controls {
     display: inline-block;
     padding: 5px 11px;
-  }
+}
 
-  .pac-controls label {
+.pac-controls label {
     font-family: Roboto;
     font-size: 13px;
     font-weight: 300;
-  }
+}
 
-  #searchInput {
+#searchInput {
     background-color: #fff;
     font-family: Roboto;
     font-size: 15px;
@@ -136,41 +177,40 @@ footer.page-footer {
     padding: 0 11px 0 13px;
     text-overflow: ellipsis;
     width: 400px;
-  }
-  #searchInput:focus {
+}
+
+#searchInput:focus {
     border-color: #4d90fe;
-  }
-  #title {
+}
+
+#title {
     color: #fff;
     background-color: #4d90fe;
     font-size: 25px;
     font-weight: 500;
     padding: 6px 12px;
-  }
-  #target {
+}
+
+#target {
     width: 345px;
-  }
-  div.row {
+}
+
+div.row {
     margin-top: 2%;
     margin-left: 15%;
-  }
-  div.section {
-      padding: 0;
-  }
-  div.footer-copyright {
-      margin-left: 75%;
-  }
-/* </style> */
-/* <!--END maps.html STYLEs--> */
-
-.searchBox, #recSearch, #searchCard {
-  height: 100px;
 }
 
-#map{
-  height: 600px;
+div.section {
+    padding: 0;
 }
 
-/* #recSearch {
-  max-width: 300px;
-} */
+
+/*footer*/
+
+#footer-copyright {
+    text-align: center;
+}
+
+div.footer-copyright {
+    margin-left: 75%;
+}
